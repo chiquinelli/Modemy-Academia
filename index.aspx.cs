@@ -24,9 +24,13 @@ namespace MuscleAcademia
                     }
                     else
                     {
-                        QtdIntrutores.Text ="0" ;
+                        QtdIntrutores.Text = "0";
 
                     }
+                }
+                else
+                {
+                    Response.Redirect("Login/login.aspx");
                 }
             }
         }
