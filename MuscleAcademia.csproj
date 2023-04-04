@@ -200,6 +200,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="src\css\cadastroInstrutor-css.css" />
+    <Content Include="src\css\loginStyles.css" />
     <Content Include="src\css\reset.css" />
     <Content Include="src\css\responsive.css" />
     <Content Include="src\css\styles.css" />

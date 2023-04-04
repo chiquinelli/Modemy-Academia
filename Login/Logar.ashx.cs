@@ -58,9 +58,19 @@ namespace Academia.Login
 
                 // Insere o novo cadastro
                 Academia = Academia.Selecionar(email, senha);
-                Global.academiaAtiva = Academia;
-                //var response = new { status = "success", mensagem = "Dados recebidos com sucesso." };
-                HttpContext.Current.Response.Write(JsonConvert.SerializeObject(Academia));
+                if (Academia != null)
+                {
+                    Global.academiaAtiva = Academia;
+                    //var response = new { status = "success", mensagem = "Dados recebidos com sucesso." };
+                    HttpContext.Current.Response.Write(JsonConvert.SerializeObject(Academia));
+                }
+                else
+                {
+                    var response = new { status = "error", mensagem = "Usuário não encontrado." };
+                    HttpContext.Current.Response.Write(JsonConvert.SerializeObject(response));
+
+                }
+
             }
             catch (Exception ex)
             {

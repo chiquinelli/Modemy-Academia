@@ -29,7 +29,8 @@
 
         <img src="../src/imagens/logo.jpg" alt="">
 
-        <form id="form1">
+        <%--                <form id="form1">--%>
+        <div id="form1">
 
             <div class="prr">
                 <div class="divName">
@@ -58,11 +59,21 @@
                     <input class="numero campoInstrutor" type="text" name="numero" id="numero" runat="server">
                 </div>
 
+               <div class="divCidade">
+                    <label for="cidade">Cidade</label>
+                    <input class="cidade campoInstrutor" type="text" name="cidade" id="Text1" runat="server">
+                </div>
 
-            </div>
-        </form>
-                        <input class="submit" type="submit" value="Cadastrar" onclick="Cadastrar()">
+               <div class="divEstado">
+                    <label for="estado">UF</label>
+                    <input class="estado campoInstrutor" type="text" name="estado" id="Text2" runat="server">
+                </div>
+
+                <input class="submit" type="submit" id="btnCadastrar" value="Cadastrar" onclick="Cadastrar(event)">
                 <input class="cancel" type="submit" value="Cancelar" onclick="Voltar()">
+            </div>
+    </div>
+    <%--        </form>--%>
     </div>
     <script>
         $(document).ready(function () {
@@ -78,6 +89,15 @@
 
 
         });
+        //function Cadastrar(event) {
+        //    event.preventDefault(); // evita o comportamento padrão do botão
+
+        //    window.location.href = "../cadastro/cadastroInstrutor"; // redireciona para a outra página
+        //}
+        //$("#btnCadastrar").click(() => {
+        //    event.preventDefault();
+        //    window.location.href = "../cadastro/cadastroInstrutor"; // redireciona para a outra página
+        //});
 
         var nome;
         var telefone;
@@ -105,7 +125,8 @@
                 })
                 .catch(error => {
                     console.log('CEP inválido:');
-                });        }
+                });
+        }
         function ValidarCampos() {
             // Selecionando os campos
             nome = $("#nome").val();

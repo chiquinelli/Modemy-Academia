@@ -10,7 +10,7 @@
 
     <title>Modemy - Acesse a nossa plataforma</title>
 
-    <link rel="stylesheet" href="../src/css/styles.css">
+    <link rel="stylesheet" href="../src/css/loginStyles.css">
     <link rel="stylesheet" href="../src/css/responsive.css">
     <link rel="stylesheet" href="../src/css/reset.css">
     <link rel="stylesheet" href="../src/css/Swal.css">
@@ -70,12 +70,22 @@
                             }).then((result) => {
                                 // Executa uma ação após o usuário clicar no botão "Ok"
                                 Swal.close();
-                                localStorage.setItem("Id", resultado.Id);
-                                localStorage.setItem("objUsuario", resultado);
                                 window.location.href = '../index.aspx';
 
                             });
                         } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Usuário e senha não encontrado!',
+                                confirmButton: {
+                                    text: 'Ok',
+                                    className: 'btn btn-primary'
+                                }
+                            }).then((result) => {
+                                // Executa uma ação após o usuário clicar no botão "Ok"
+                                Swal.close();
+
+                            });
                             // código para executar quando o login for inválido
                             console.log("Login inválido");
                         }

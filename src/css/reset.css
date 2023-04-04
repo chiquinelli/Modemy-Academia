@@ -1,8 +1,10 @@
-body{
+body {
     margin: 0px;
     padding: 0px;
-    background:	#000923;
+    background: #000923;
     color: aliceblue;
+    font-family: 'Poppins';
+    background: #000919 url(../src/imagens/fundo.png) no-repeat top center;
 }
 
 ul{

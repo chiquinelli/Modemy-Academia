@@ -703,11 +703,21 @@ width: auto;
 }
 
 .divEndereco {
-    width: 70%;
+    width: 80%;
     margin-right: auto;
 }
 
 .divNumero {
-    width: 22%;
+    width: 12%;
+    margin-left: auto;
+}
+
+.divCidade {
+    width: 70%;
+    margin-right: auto;
+}
+
+.divEstado {
+    width: 20%;
     margin-left: auto;
 }
