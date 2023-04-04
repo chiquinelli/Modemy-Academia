@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="./src/imagens/fav-icone.png" type="image/x-icon">
+
+    <title>Modemy - sua academia moderna</title>
+
+    <link rel="stylesheet" href="./src/css/styles.css">
+    <link rel="stylesheet" href="./src/css/responsive.css">
+    <link rel="stylesheet" href="./src/css/reset.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Poppins:wght@100;300;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./src/css/Swal.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./src/js/Swal.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+</head>
+<body>
+
+    <header class="cabecalho">
+        <img src="./src/imagens/perfil.png" alt="">
+        <ul>
+            <li class="nome-usuario"></li>
+            <li class="nome-academia"></li>
+        </ul>
+
+        <a href="login.html" class="sair">Sair</a>
+    </header>
+        
+
+        <main id="area-conteudo">
+
+            <section class="campos">
+                <a href="matriculas.html">
+                    <h4>MATRÍCULAS</h4>
+                    <span class="valor">500</span>
+                </a>
+            </section>
+
+            <section class="campos">
+                <a href="desistencias.html">
+                    <h4>DESISTÊNCIAS</h4>
+                    <span class="valor">12</span>
+                </a>
+            </section>
+
+            <section class="campos">
+                <a href="instrutores.html">
+                        <h4>INSTRUTORES</h4>
+                        <span class="valor">40</span>
+                </a>
+            </section>
+
+            <section class="campos">
+                <a href="dados.html">
+                        <h4>DADOS DE FREQUÊNCIA</h4>
+                </a>
+            </section>
+        </main>
+        
+    <!--</div>-->
+            <footer id="rodape">
+            <p>© Modemy - 2022</p>
+        </footer>
+
+            <script>
+                $(document).ready(function () {
+                    var Id = localStorage.getItem("Id");
+                    $.ajax({
+                        type: "POST",
+                        url: "Login/Logar.ashx",
+                        data: { Id:Id, method: "ResgatarLogin" },
+                        success: function (response) {
+                            var resultado = JSON.parse(response);
+
+                            if (resultado.Id != null || resultado.Id != undefined) {
+                                $(".nome-usuario").html(resultado.Nome);
+                                $(".nome-academia").html(resultado.Instituicao);
+                              
+                            } else {
+                                // código para executar quando o login for inválido
+                                console.log("Login inválido");
+                            }
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            // código para executar quando ocorrer um erro na chamada Ajax
+                            console.log("Ocorreu um erro: " + errorThrown);
+                        }
+                    });
+
+                });
+
+            </script>
+</body>
+
+</html>

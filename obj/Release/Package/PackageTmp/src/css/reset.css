@@ -1,0 +1,16 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background:	#000923;
+    color: aliceblue;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+

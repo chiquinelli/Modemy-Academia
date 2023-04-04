@@ -1,0 +1,473 @@
+body{
+    font-family: 'Poppins';
+    background: #000919 url(../imagens/fundo.png) no-repeat top center;
+}
+
+
+#container-login{
+    width: 400px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 120px;
+    text-align: center;
+}
+
+
+#container-login img{
+    width: 120px;
+    height: 120px;
+    margin-top: -60px;
+    margin-bottom: 30px;
+    border-radius: 40px;
+}
+
+#container-login .olho img{
+text-align: right;
+width: 24px;
+height: 24px;
+position: absolute;
+right: 506px;
+top: 335px;
+}
+
+
+input{
+    width: 80%;
+    height: 40px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+input.email{
+    background-image: url(../imagens/icone-usuario.png);
+    padding-left: 40px;
+}
+
+input.senha{
+    background-image: url(../imagens/icone-cadeado.png);
+    padding-left: 40px;
+}
+
+
+.submit{
+    color: #fff;
+    background-color:#000919;
+    padding: 5px 20px;
+    height: 45px;
+    width: 90%;
+    cursor: pointer;
+    border: none;
+    font-weight: bolder;
+    font-size: 1em;
+}
+
+.submit:hover{
+    background-color: #33ddc6;
+    transition:all 0.5s ease;
+    transform: scale(0.9); 
+}
+
+#area-conteudo a{
+    color: #fff;
+    font-size: 0.8em;
+    text-decoration: none;
+    padding-left: 180px;
+}
+
+a:hover{
+    text-decoration: underline  ;
+}
+
+
+/******************** Tela de cadastro *********************/
+
+#container-cadastro{
+    width: 400px;
+    height: 460px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 120px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#container-cadastro img{
+    width: 120px;
+    height: 120px;
+    margin-top: -60px;
+    margin-bottom: 30px;
+    border-radius: 40px;
+}
+
+#container-cadastro .cadastrar{
+    cursor: pointer;
+    width: 120px;
+}
+
+#cadastro{
+    font-size: 18px;
+}
+
+/*Campos de cadastro*/
+
+#container-cadastro .email1{
+padding-left: 40px;
+background-image: url(../imagens/icone-email2.png);
+}
+
+#container-cadastro .senha1{
+    padding-left: 40px;
+    background-image: url(../imagens/icone-cadeado.png);    
+}
+
+#container-cadastro .nome1{
+    padding-left: 40px;
+    background-image: url(../imagens/icone-usuario.png);
+}
+
+#container-cadastro .cpf1{
+    padding-left: 40px;
+    background-image: url(../imagens/icone-cpf2.png);
+}
+
+#container-cadastro .instituicao{
+    padding-left: 41px;
+    background-image: url(../imagens/icone-academia2.png);
+    background-position-x: 4px;
+}
+
+
+/************************ PÁGINA PRINCIPAL ****************************/ 
+
+.cabecalho{
+    width: 100%;
+    height: 13vh;
+    background: #000919;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction:row;
+}
+
+.cabecalho img{
+    width: 8%;
+    height: 85%;
+    margin-left: 10px;
+    padding: 10px 15px;
+}
+
+.nome-usuario{
+    float: right;
+    color: #fff;
+    display: inline;
+}
+
+.nome-academia{
+    clear: both;
+    float: right;
+    color: #f68a00;
+}
+
+.mes{
+    color: #f68a00;
+}
+
+.titulo{
+    position:relative;
+    margin: auto auto;
+    font-size: 1.4em;
+    color: #fff;
+    text-align: center;
+}
+
+.sair{
+    font-size: 1.3em;
+    color: #fff;
+    margin: auto 25px;
+    top: 25px;
+    padding-left: 0px;
+    padding-left: 900px;
+}
+
+
+/********************* Área de conteudo *********************/
+
+#area-conteudo{
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 50px;
+margin-top: 10%;
+}
+
+
+.campos{
+    width: 260px;
+    height: 210px;
+    padding: 10px;
+    background: -webkit-gradient(linear, left top, right bottom, from(#191b1f), to(rgb(7, 80, 129))) no-repeat;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 1.7em;
+    color: #fff;
+    align-items: center;
+}
+
+
+.campos:hover{
+    background: #33ddc6;
+    color: #fff;
+    transition: 1.3s;
+}
+
+.campos:hover .valor{
+    color: #fff;
+    transition: 1.3s;
+}
+
+.valor{
+    font-size: 60px;
+    text-align: center;
+    color: #33ddc6;
+}
+
+.campos h4{
+    margin: auto;
+}
+
+#rodape{
+    width: 100%;
+    background-color: #000919;
+    height: 45px;
+    bottom: 0px;
+    position: fixed;
+    padding: 0px;
+    color: #fff;
+}
+
+main.dados-matricula{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: auto auto;
+    margin: 25px auto;
+    width: 90%;
+    height: 70%;
+    background-color: #41405360;
+    border-radius: 50px;
+    gap: 60px;
+}
+
+.mes-atual{
+    margin: 10px auto;
+    text-align: center;
+    width: auto;
+    height: 150px;
+    font-size: 1.2em;
+}
+
+.mes-atual h3{
+    color: #ffffff;
+}
+
+.total-matriculas{
+    text-align: center;
+    margin: -100px auto;
+    width: auto;
+    height: 150px;
+    font-size: 1.2em;
+}
+
+.doze-meses{
+    width: 100%;
+    font-size: 1.2em;
+}
+
+.doze-meses h3{
+    margin-top: 30px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.dado-mes{
+    font-weight: bolder;
+    color: #f68a00;
+    font-size: 1.3em;
+}
+
+.meses{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.mes{
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f68a00;
+}
+
+nav.navegacao{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+    justify-content: center;;
+}
+
+nav.navegacao ul{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px auto;
+}
+
+nav.navegacao ul li a{
+    font-weight: bold;  
+    padding: 8px;
+}
+
+nav.navegacao ul li a:hover{
+    background-color: #33ddc6;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.8s;
+}
+
+
+#container-instrutores{
+    width: 1250px;
+    height: auto;
+    margin: 25px auto;
+    background-color: #4140533d;
+    border-radius: 50px;
+}
+
+.dados-instrutores{
+    display: flex;
+}
+
+.campo-instrutor h3{
+    color: #f68a00;
+}
+
+.campo-instrutor{
+    padding: 40px;
+    color: #fff;
+}
+
+.cadastrar-instrutor{
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 0px;
+    margin: auto auto;
+}
+
+.quantidade-instrutores{
+    font-weight: bolder;
+    font-size: 1.8em;
+    margin-top: 5px;
+}
+
+.btn-cadastro-instrutor{
+    background-color: #000919;
+    width: auto;
+    height: 40px;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 1em;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.btn-cadastro-instrutor:hover{
+    cursor: pointer;
+    background-color: #33ddc6;
+    transition: 0.2s;
+}
+
+.btn-remover-instrutor{
+    background-color: #000919;
+    width: auto;
+    height: 40px;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 1em;
+    border: none;
+}
+
+.btn-remover-instrutor:hover{
+    cursor: pointer;
+    background-color: #df0000;
+    transition: 0.2s;
+}
+
+main.dados-desistentes{
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    padding: auto auto;
+    margin: 25px auto;
+    width: 90%;
+    height: 70%;
+    background-color: #41405360;
+    border-radius: 50px;
+    gap: 60px;
+}
+
+
+#container-dados{
+    display: flex;
+    width: 1250px;
+    height: 450px;
+    margin: 25px auto;
+    background-color: #4140534d;
+    border-radius: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+}
+
+#container-dados .titulo{
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#container-dados .titulo-campo{
+    margin: 15px auto;
+    text-align: center;
+}
+
+#container-dados .campo-estatistico{
+    text-align: center;
+    justify-content: center;
+    padding: 15px;
+    padding-left: 0px;
+    position: relative;
+    display: flex;
+    width: auto;
+    height: auto;
+    gap: 20px;
+}
+
+#container-dados .dado-estatistico{
+    color: #f68a00;
+    text-align: center;
+}
+
+

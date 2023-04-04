@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../src/imagens/fav-icone.png" type="image/x-icon">
+
+    <title>Modemy - Cadastre-se na nossa plataforma</title>
+
+    <link rel="stylesheet" href="../src/css/styles.css">
+    <link rel="stylesheet" href="../src/css/responsive.css">
+    <link rel="stylesheet" href="../src/css/reset.css">
+    <link rel="stylesheet" href="../src/css/Swal.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../src/js/Swal.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+</head>
+<body>
+    <div id="container-cadastro">
+        <img class="icone" src="../src/imagens/logo.jpg" alt="">
+
+        <form>
+
+            <input class="nome1" type="text" name="nome" id="nome" placeholder="Digite seu nome">
+
+            <input class="cpf1" type="text" name="cpf" id="cpf" placeholder="Digite seu CPF">
+
+            <input class="instituicao" type="text" name="nome-instituicao" id="instituicao" placeholder="Digite o nome da instituição">
+
+            <input class="email1" type="email" name="email" id="email" placeholder="Digite seu e-mail">
+
+            <input class="senha1" type="password" name="senha" id="senha" placeholder="Digite sua senha">
+
+        </form>
+
+        <div>
+            <input class="submit" type="submit" value="Cadastrar" onclick="Cadastrar()">
+        </div>
+
+        <a href="login.html">Já possui cadastro? Acesse agora</a>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            // Adicione a máscara de CPF ao campo $("#cpf")
+            $("#cpf").mask('000.000.000-00');
+        });
+        var nome;
+        var cpf;
+        var instituicao;
+        var email;
+        var senha;
+
+        function VerificarCampos() {
+            // Armazena os valores dos campos em variáveis
+            nome = $("#nome").val();
+            cpf = $("#cpf").val();
+            instituicao = $("#instituicao").val();
+            email = $("#email").val();
+            senha = $("#senha").val();
+
+            var cpfRegex = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Verifica se os campos não estão vazios
+            if (nome === "" || cpf === "" || instituicao === "" || email === "" || senha === "") {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Por favor, preencha todos os campos.',
+                    confirmButton: {
+                        text: 'Ok',
+                        className: 'btn btn-primary'
+                    }
+                }).then((result) => {
+                    // Executa uma ação após o usuário clicar no botão "Ok"
+                    Swal.close();
+                });
+                return false;
+            }
+
+            // Verifica se o CPF está no formato correto
+            if (!cpfRegex.test(cpf)) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Por favor, insira um CPF válido (formato: 000.000.000-00).',
+                    confirmButton: {
+                        text: 'Ok',
+                        className: 'btn btn-primary'
+                    }
+                }).then((result) => {
+                    // Executa uma ação após o usuário clicar no botão "Ok"
+                    Swal.close();
+                });
+                return false;
+            }
+
+            // Verifica se o e-mail está no formato correto
+            if (!emailRegex.test(email)) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Por favor, insira um endereço de e-mail válido.',
+                    confirmButton: {
+                        text: 'Ok',
+                        className: 'btn btn-primary'
+                    }
+                }).then((result) => {
+                    // Executa uma ação após o usuário clicar no botão "Ok"
+                    Swal.close();
+                });
+                return false;
+            }
+
+            // Verifica se a senha tem pelo menos 6 caracteres
+            if (senha.length < 6) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'A senha deve ter pelo menos 6 caracteres.',
+                    confirmButton: {
+                        text: 'Ok',
+                        className: 'btn btn-primary'
+                    }
+                }).then((result) => {
+                    // Executa uma ação após o usuário clicar no botão "Ok"
+                    Swal.close();
+                });
+                return false;
+            }
+            cpf = cpf.replace(/[^\d]/g, '');
+
+            // Se todas as validações passarem, retorna true
+            return true;
+
+        }
+        function Cadastrar() {
+
+            if (VerificarCampos()) {
+                $.ajax({
+                    type: "POST",
+                    url: "Cadastro.ashx/Cadastrar",
+                    data: { nome: nome, cpf: cpf, email: email, senha: senha, instituicao: instituicao, method: "Cadastrar" },
+                    success: function (response) {
+                        var resultado = JSON.parse(response);
+
+                        if (resultado.status === "success") {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'O cadastro foi salvo com sucesso!',
+                                confirmButton: {
+                                    text: 'Ok',
+                                    className: 'btn btn-primary'
+                                }
+                            }).then((result) => {
+                                // Executa uma ação após o usuário clicar no botão "Ok"
+                                Swal.close();
+                                window.location.href = '../login.html';
+
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: resultado.mensagem,
+                                confirmButton: {
+                                    text: 'Ok',
+                                    className: 'btn btn-primary'
+                                }
+                            }).then((result) => {
+                                // Executa uma ação após o usuário clicar no botão "Ok"
+                                Swal.close();
+                            });
+                        }
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Erro ao salvar o cadastro.',
+                            confirmButton: {
+                                text: 'Ok',
+                                className: 'btn btn-primary'
+                            }
+                        }).then((result) => {
+                            // Executa uma ação após o usuário clicar no botão "Ok"
+                            Swal.close();
+                        });
+                    }
+                });
+            }
+        }
+
+    </script>
+</body>
+</html>
