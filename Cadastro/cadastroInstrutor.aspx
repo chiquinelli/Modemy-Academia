@@ -29,8 +29,8 @@
 
         <img src="../src/imagens/logo.jpg" alt="">
 
-        <%--                <form id="form1">--%>
-        <div id="form1">
+        <form id="form1" runat="server">
+            <%--        <div id="form1">--%>
 
             <div class="prr">
                 <div class="divName">
@@ -58,11 +58,12 @@
                     <label for="numero">Nº</label>
                     <input class="numero campoInstrutor" type="text" name="numero" id="numero" runat="server">
                 </div>
-                <input class="submit" type="submit" id="btnCadastrar" value="Cadastrar" onclick="Cadastrar(event)">
+                <%--                <input class="submit" type="submit" id="btnCadastrar" value="Cadastrar" onclick="Cadastrar(event)" runat="server" >--%>
+                <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" OnClick="btnCadastrar_Click" CssClass="submit" />
                 <input class="cancel" type="submit" value="Cancelar" onclick="Voltar()">
             </div>
-    </div>
-    <%--        </form>--%>
+            <%--        </div>--%>
+        </form>
     </div>
     <script>
         $(document).ready(function () {
@@ -139,10 +140,10 @@
                 });
                 return false;
             }
-            if (cep.lenght < 8) {
+            if (cep.length != 9) {
                 Swal.fire({
                     icon: 'warning',
-                    title: 'Por favor colque um cep valido',
+                    title: 'Por favor colque um cep válido.',
                     confirmButton: {
                         text: 'Ok',
                         className: 'btn btn-primary'
@@ -150,7 +151,21 @@
                 }).then((result) => {
                     // Executa uma ação após o usuário clicar no botão "Ok"
                     Swal.close();
-                    cep.focus();
+                });
+                return false;
+            }
+            if (telefone.length != 15) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Por favor colque um telefone válido.',
+                    confirmButton: {
+                        text: 'Ok',
+                        className: 'btn btn-primary'
+                    }
+                }).then((result) => {
+                    // Executa uma ação após o usuário clicar no botão "Ok"
+                    Swal.close();
+
                 });
                 return false;
             }
