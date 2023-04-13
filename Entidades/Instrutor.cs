@@ -98,5 +98,31 @@ namespace MuscleAcademia.Entidades
             }
             return instrutores;
         }
+        public Instrutor ObterPorId(int idInstrutor)
+        {
+            var instrutor = new Instrutor();
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                var query = "SELECT * FROM tblInstrutores WHERE IdInstrutor = @IdInstrutor";
+                var command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@IdInstrutor", idInstrutor);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    instrutor.IdInstrutor = reader.GetInt32("IdInstrutor");
+                    instrutor.NomeCompleto = reader.GetString("NomeCompleto");
+                    instrutor.Endereco = reader.GetString("Endereco");
+                    instrutor.NumeroEndereco = reader.GetString("NumeroEndereco");
+                    instrutor.Cep = reader.GetString("Cep");
+                    instrutor.Telefone = reader.GetString("Telefone");
+                    instrutor.IdAcademia = reader.GetInt32("IdAcademia");
+
+
+                }
+            }
+            return instrutor;
+        }
     }
 }
