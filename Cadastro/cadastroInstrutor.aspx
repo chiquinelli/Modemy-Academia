@@ -12,7 +12,7 @@
 
     <title>Modemy - Cadastre-se na nossa plataforma</title>
 
-    <link rel="stylesheet" href="../src/css/cadastroInstrutor-css.css">
+    <link rel="stylesheet" href="../src/css/cadastroInstrutoresStyles.css">
     <link rel="stylesheet" href="../src/css/responsive.css">
     <link rel="stylesheet" href="../src/css/reset.css">
     <link rel="stylesheet" href="../src/css/Swal.css">
@@ -58,6 +58,17 @@
                     <label for="numero">Nº</label>
                     <input class="numero campoInstrutor" type="text" name="numero" id="numero" runat="server">
                 </div>
+
+                    <div class="divCidade">
+                    <label for="cidade">Cidade</label>
+                    <input class=" campoInstrutor" type="text" name="numero" id="Text1" runat="server">
+                </div>
+
+                    <div class="divEstado">
+                    <label for="estado">UF</label>
+                    <input class="campoInstrutor" type="text" name="numero" id="Text2" runat="server">
+                </div>
+
                 <input class="submit" type="submit" id="btnCadastrar" value="Cadastrar" onclick="Cadastrar(event)">
                 <input class="cancel" type="submit" value="Cancelar" onclick="Voltar()">
             </div>

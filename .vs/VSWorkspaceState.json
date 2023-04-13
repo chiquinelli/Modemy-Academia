@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Cadastro"
+    "\\Cadastro",
+    "\\Instrutor",
+    "\\src",
+    "\\src\\css",
+    "\\src\\imagens"
   ],
-  "SelectedNode": "\\MuscleAcademia.sln",
+  "SelectedNode": "\\Cadastro\\cadastroInstrutor.aspx",
   "PreviewInSolutionExplorer": false
 }

@@ -11,7 +11,7 @@
 
     <title>Modemy - sua academia moderna</title>
 
-    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/css/indexStyles.css">
     <link rel="stylesheet" href="src/css/responsive.css">
     <link rel="stylesheet" href="src/css/reset.css">
 
@@ -76,7 +76,7 @@
 
     <!--</div>-->
     <footer id="rodape">
-        <p>© Modemy - 2022</p>
+        <p>© Modemy - 2023</p>
     </footer>
 
     <script>
