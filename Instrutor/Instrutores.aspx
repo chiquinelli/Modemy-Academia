@@ -23,16 +23,16 @@
     <style>
         /* Estilização geral da tabela */
         .dados-instrutores table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-left: 10%;
-            margin-top: 10%;
+            /*            border-collapse: collapse;
+*/ width: 100%;
+            /*margin-left: 10%;
+            margin-top: 10%;*/
         }
 
         /* Estilização dos cabeçalhos da tabela */
         .dados-instrutores th {
-            border: 1px solid #ddd;
-            font-weight: bold;
+            /*            border: 1px solid #ddd;
+*/ font-weight: bold;
             padding: 8px;
             text-align: center;
         }
@@ -42,6 +42,36 @@
             border: 1px solid #ddd;
             padding: 8px;
             text-align: center;
+        }
+
+        .lstEditarBtn {
+            width: 100%;
+            background-color: #FF8C00;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .lstExcluirBtn {
+            font-weight: bold;
+            width: 100%;
+            background-color: #f44336;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
         }
 
         /* Estilização da primeira coluna da tabela (IdInstrutor) */
@@ -81,16 +111,66 @@
 <body>
 
     <header class="cabecalho">
-        <img src="../src/imagens/perfil.png" alt="">
-        <ul>
-            <li class="nome-usuario">Nome do usuário</li>
-            <li class="nome-academia">Nome academia</li>
-        </ul>
+        <div class="cabecalho-itens">
+            <img src="../src/imagens/perfil.png" alt="">
+            <ul>
+                <li class="nome-usuario">
+                    <asp:Literal runat="server" ID="nomeUser"></asp:Literal></li>
+                <li class="nome-academia">
+                    <asp:Literal runat="server" ID="nomeAcademia"></asp:Literal>
+                </li>
 
-        <span class="titulo">Instrutores cadastrados</span>
-        <a href="login.html" class="sair">Sair</a>
+            </ul>
+
+            <a onclick="Sair()" class="sair">Sair</a>
+
+        </div>
     </header>
 
+
+    <form id="form1" runat="server">
+
+        <main id="container-instrutores">
+            <section class="dados-instrutores">
+                <div style="padding: 3rem;">
+                    <asp:GridView ID="lstInstrutores" runat="server" AutoGenerateColumns="false" OnRowCommand="lstInstrutores_RowCommand" BorderStyle="None" CellPadding="2" CellSpacing="2" Style="border-collapse: collapse;" OnSelectedIndexChanged="lstInstrutores_SelectedIndexChanged">
+                        <Columns>
+                            <asp:BoundField DataField="IdInstrutor" HeaderText="Id" Visible="false" />
+                            <asp:BoundField DataField="NomeCompleto" HeaderText="Nome Completo" />
+                            <asp:BoundField DataField="Endereco" HeaderText="Endereco" />
+                            <asp:BoundField DataField="NumeroEndereco" HeaderText="Numero" />
+                            <asp:BoundField DataField="Cep" HeaderText="CEP" />
+                            <asp:BoundField DataField="Telefone" HeaderText="Telefone" />
+                            <asp:TemplateField HeaderText="">
+                                <ItemTemplate>
+                                    <asp:Button CssClass="lstEditarBtn" ID="btnEditar" runat="server" Text="Editar" CommandName="Editar" CommandArgument='<%# Eval("IdInstrutor") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="">
+                                <ItemTemplate>
+                                    <asp:Button CssClass="lstExcluirBtn" ID="btnExcluir" runat="server" Text="Excluir" CommandName="Excluir" CommandArgument='<%# Eval("IdInstrutor") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                        <RowStyle BorderStyle="None" Font-Overline="False" Font-Strikeout="False" />
+                    </asp:GridView>
+
+
+                </div>
+                <div class="cadastrar-instrutor">
+                    <h3>Quantidade total de instrutores</h3>
+
+                    <p class="quantidade-instrutores">
+                        <asp:Literal runat="server" ID="QtdIntrutores"></asp:Literal>
+                    </p>
+                    <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar instrutor(a)" OnClientClick="Cadastrar(event);" CssClass="btn-cadastro-instrutor" />
+                    <%--                    <br>
+                    <button class="btn-remover-instrutor">Remover instrutor(a)</button>--%>
+                </div>
+
+            </section>
+        </main>
+    </form>
     <footer>
         <nav class="navegacao">
             <ul>
@@ -101,35 +181,6 @@
                 <li><a href="dados.html">Dados</a></li>
             </ul>
         </nav>
-        <form id="form1" runat="server">
-
-            <main id="container-instrutores">
-                <section class="dados-instrutores">
-                    <asp:GridView ID="lstInstrutores" runat="server" AutoGenerateColumns="false">
-                        <Columns>
-                            <asp:BoundField DataField="IdInstrutor" HeaderText="Id" />
-                            <asp:BoundField DataField="NomeCompleto" HeaderText="Nome Completo" />
-                            <asp:BoundField DataField="Endereco" HeaderText="Endereco" />
-                            <asp:BoundField DataField="NumeroEndereco" HeaderText="Numero" />
-                            <asp:BoundField DataField="Cep" HeaderText="CEP" />
-                            <asp:BoundField DataField="Telefone" HeaderText="Telefone" />
-                        </Columns>
-                    </asp:GridView>
-
-                    <div class="cadastrar-instrutor">
-                        <h3>Quantidade total de instrutores</h3>
-
-                        <p class="quantidade-instrutores">
-                            <asp:Literal runat="server" ID="QtdIntrutores"></asp:Literal>
-                        </p>
-                        <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar instrutor(a)" OnClientClick="Cadastrar(event);" CssClass="btn-cadastro-instrutor" />
-                        <br>
-                        <button class="btn-remover-instrutor">Remover instrutor(a)</button>
-                    </div>
-
-                </section>
-            </main>
-        </form>
     </footer>
 
 </body>

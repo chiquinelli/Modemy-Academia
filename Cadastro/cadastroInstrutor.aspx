@@ -29,7 +29,7 @@
 
         <img src="../src/imagens/logo.jpg" alt="">
 
-        <%--                <form id="form1">--%>
+        <%--        <form id="form1" runat="server">--%>
         <div id="form1">
 
             <div class="prr">
@@ -58,22 +58,11 @@
                     <label for="numero">Nº</label>
                     <input class="numero campoInstrutor" type="text" name="numero" id="numero" runat="server">
                 </div>
-
-               <div class="divCidade">
-                    <label for="cidade">Cidade</label>
-                    <input class="cidade campoInstrutor" type="text" name="cidade" id="Text1" runat="server">
-                </div>
-
-               <div class="divEstado">
-                    <label for="estado">UF</label>
-                    <input class="estado campoInstrutor" type="text" name="estado" id="Text2" runat="server">
-                </div>
-
                 <input class="submit" type="submit" id="btnCadastrar" value="Cadastrar" onclick="Cadastrar(event)">
                 <input class="cancel" type="submit" value="Cancelar" onclick="Voltar()">
             </div>
-    </div>
-    <%--        </form>--%>
+        </div>
+        <%--        </form>--%>
     </div>
     <script>
         $(document).ready(function () {
@@ -86,7 +75,34 @@
                 // Chama a função quando o campo perder o foco
                 BuscarCep();
             });
+            if (window.location.search.includes("idInstrutor=")) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const idInstrutor = urlParams.get('idInstrutor');
+                if (idInstrutor != null) {
+                    CarregarObj(idInstrutor, function (instrutor) {
+                        var telefone = instrutor.Telefone
+                        var cep = instrutor.Cep;
+                        // adicione a máscara do telefone e cep
+                        telefone = telefone.replace(/^(\d{2})(\d{4,5})(\d{4})$/, "($1) $2-$3");
+                        cep = cep.replace(/^(\d{5})(\d{3})$/, "$1-$2");
+                        $("#cep").val(cep);
+                        $("#telefone").val(telefone);
+                        $("#nome").val(instrutor.NomeCompleto);
+                        //$("#telefone").val(instrutor.Telefone);
+                        //$("#cep").val(instrutor.Cep);
+                        $("#endereco").val(instrutor.Endereco);
+                        $("#numero").val(instrutor.NumeroEndereco);
+                        $("#btnCadastrar").val("Editar");
 
+                        // Muda o onclick para "EditarCadastro"
+                        $("#btnCadastrar").attr("onclick", "EditarCadastro(event)");
+                        setTimeout(function () {
+                            $("#telefone").mask('(00) 00000-0000');
+                            $("#cep").mask('00000-000');
+                        }, 100);
+                    });
+                }
+            }
 
         });
         //function Cadastrar(event) {
@@ -98,7 +114,6 @@
         //    event.preventDefault();
         //    window.location.href = "../cadastro/cadastroInstrutor"; // redireciona para a outra página
         //});
-
         var nome;
         var telefone;
         var cep;
@@ -150,10 +165,10 @@
                 });
                 return false;
             }
-            if (cep.lenght < 8) {
+            if (cep.length != 9) {
                 Swal.fire({
                     icon: 'warning',
-                    title: 'Por favor colque um cep valido',
+                    title: 'Por favor colque um cep válido.',
                     confirmButton: {
                         text: 'Ok',
                         className: 'btn btn-primary'
@@ -161,7 +176,21 @@
                 }).then((result) => {
                     // Executa uma ação após o usuário clicar no botão "Ok"
                     Swal.close();
-                    cep.focus();
+                });
+                return false;
+            }
+            if (telefone.length != 15) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Por favor colque um telefone válido.',
+                    confirmButton: {
+                        text: 'Ok',
+                        className: 'btn btn-primary'
+                    }
+                }).then((result) => {
+                    // Executa uma ação após o usuário clicar no botão "Ok"
+                    Swal.close();
+
                 });
                 return false;
             }
@@ -178,6 +207,26 @@
             window.location.href = '../index';
 
         }
+        function CarregarObj(idInstrutor, callback) {
+            $.ajax({
+                type: "POST",
+                url: "Cadastro.ashx/Cadastrar",
+                data: { id: idInstrutor, method: "RecuperarObjInstrutor" },
+                success: function (response) {
+                    var objInstrutor = JSON.parse(response);
+
+                    if (objInstrutor != undefined) {
+                        callback(objInstrutor);
+                    } else {
+                        callback(null, "Erro ao carregar dados do ID " + idInstrutor + ". Por favor tente outro ID.");
+                    }
+                },
+                error: function (error) {
+                    callback(null, error);
+                }
+            });
+        }
+
         function Cadastrar() {
             if (ValidarCampos()) {
                 $.ajax({
@@ -199,6 +248,62 @@
                                 // Executa uma ação após o usuário clicar no botão "Ok"
                                 Swal.close();
                                 location.reload();
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: resultado.mensagem,
+                                confirmButton: {
+                                    text: 'Ok',
+                                    className: 'btn btn-primary'
+                                }
+                            }).then((result) => {
+                                // Executa uma ação após o usuário clicar no botão "Ok"
+                                Swal.close();
+                            });
+                        }
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Erro ao salvar o cadastro.',
+                            confirmButton: {
+                                text: 'Ok',
+                                className: 'btn btn-primary'
+                            }
+                        }).then((result) => {
+                            // Executa uma ação após o usuário clicar no botão "Ok"
+                            Swal.close();
+                        });
+                    }
+                });
+            }
+
+        }
+        function EditarCadastro() {
+            if (ValidarCampos()) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const idInstrutor = urlParams.get('idInstrutor');
+                $.ajax({
+                    type: "POST",
+                    url: "Cadastro.ashx/Cadastrar",
+                    data: { id: idInstrutor, nome: nome, telefone: telefone, cep: cep, endereco: endereco, numero: numero, method: "EditarInstrutor" },
+                    success: function (response) {
+                        var resultado = JSON.parse(response);
+
+                        if (resultado.status === "success") {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'O cadastro foi editado com sucesso!',
+                                confirmButton: {
+                                    text: 'Ok',
+                                    className: 'btn btn-primary'
+                                }
+                            }).then((result) => {
+                                // Executa uma ação após o usuário clicar no botão "Ok"
+                                Swal.close();
+                                window.location.href = 'cadastroInstrutor';
+
                             });
                         } else {
                             Swal.fire({
