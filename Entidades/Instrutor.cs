@@ -17,6 +17,8 @@ namespace MuscleAcademia.Entidades
         public string NumeroEndereco { get; set; }
         public string Cep { get; set; }
         public string Telefone { get; set; }
+        public string Cidade { get; set; }
+        public string Uf { get; set; }
         public int IdAcademia { get; set; }
 
         private string connectionString = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
@@ -29,14 +31,16 @@ namespace MuscleAcademia.Entidades
             using (var connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                var query = "INSERT INTO tblInstrutores (NomeCompleto, Endereco, NumeroEndereco, Cep, Telefone, IdAcademia) VALUES (@NomeCompleto, @Endereco, @NumeroEndereco, @Cep, @Telefone, @IdAcademia); SELECT LAST_INSERT_ID();";
+                var query = "INSERT INTO tblInstrutores (NomeCompleto, Endereco, NumeroEndereco, Cep, Telefone, Cidade, Uf, IdAcademia) VALUES (@NomeCompleto, @Endereco, @NumeroEndereco, @Cep, @Telefone, @Cidade, @Uf, @IdAcademia); SELECT LAST_INSERT_ID();";
                 var command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@NomeCompleto", instrutor.NomeCompleto);
                 command.Parameters.AddWithValue("@Endereco", instrutor.Endereco);
                 command.Parameters.AddWithValue("@NumeroEndereco", instrutor.NumeroEndereco);
                 command.Parameters.AddWithValue("@Cep", instrutor.Cep);
                 command.Parameters.AddWithValue("@Telefone", instrutor.Telefone);
-                command.Parameters.AddWithValue("@IdAcademia", instrutor.IdAcademia);
+                command.Parameters.AddWithValue("@IdAcademia", instrutor.IdAcademia);  
+                command.Parameters.AddWithValue("@Cidade", instrutor.Cidade);
+                command.Parameters.AddWithValue("@Uf", instrutor.Uf);
                 var id = command.ExecuteScalar();
                 return Convert.ToInt32(id);
             }
@@ -47,7 +51,7 @@ namespace MuscleAcademia.Entidades
             using (var connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                var query = "UPDATE tblInstrutores SET NomeCompleto = @NomeCompleto, Endereco = @Endereco, NumeroEndereco = @NumeroEndereco, Cep = @Cep, Telefone = @Telefone, IdAcademia = @IdAcademia WHERE IdInstrutor = @IdInstrutor";
+                var query = "UPDATE tblInstrutores SET NomeCompleto = @NomeCompleto, Endereco = @Endereco, NumeroEndereco = @NumeroEndereco, Cep = @Cep, Telefone = @Telefone, Cidade= @Cidade, Uf = @Uf, IdAcademia = @IdAcademia WHERE IdInstrutor = @IdInstrutor";
                 var command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@IdInstrutor", instrutor.IdInstrutor);
                 command.Parameters.AddWithValue("@NomeCompleto", instrutor.NomeCompleto);
@@ -56,6 +60,8 @@ namespace MuscleAcademia.Entidades
                 command.Parameters.AddWithValue("@Cep", instrutor.Cep);
                 command.Parameters.AddWithValue("@Telefone", instrutor.Telefone);
                 command.Parameters.AddWithValue("@IdAcademia", instrutor.IdAcademia);
+                command.Parameters.AddWithValue("@Cidade", instrutor.Cidade);
+                command.Parameters.AddWithValue("@Uf", instrutor.Uf);
                 command.ExecuteNonQuery();
             }
         }
@@ -91,6 +97,8 @@ namespace MuscleAcademia.Entidades
                         NumeroEndereco = reader.GetString("NumeroEndereco"),
                         Cep = reader.GetString("Cep"),
                         Telefone = reader.GetString("Telefone"),
+                        Cidade = reader.GetString("Cidade"),
+                        Uf = reader.GetString("Uf"),
                         IdAcademia = reader.GetInt32("IdAcademia")
                     };
                     instrutores.Add(instrutor);
@@ -117,6 +125,8 @@ namespace MuscleAcademia.Entidades
                     instrutor.NumeroEndereco = reader.GetString("NumeroEndereco");
                     instrutor.Cep = reader.GetString("Cep");
                     instrutor.Telefone = reader.GetString("Telefone");
+                    instrutor.Cidade = reader.GetString("Cidade");
+                    instrutor.Uf = reader.GetString("Uf");
                     instrutor.IdAcademia = reader.GetInt32("IdAcademia");
 
 

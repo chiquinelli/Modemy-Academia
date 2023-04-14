@@ -59,14 +59,14 @@
                     <input class="numero campoInstrutor" type="text" name="numero" id="numero" runat="server">
                 </div>
 
-                    <div class="divCidade">
+                <div class="divCidade">
                     <label for="cidade">Cidade</label>
-                    <input class=" campoInstrutor" type="text" name="numero" id="Text1" runat="server">
+                    <input class="campoInstrutor" type="text" name="numero" id="cidade" runat="server">
                 </div>
 
-                    <div class="divEstado">
+                <div class="divEstado">
                     <label for="estado">UF</label>
-                    <input class="campoInstrutor" type="text" name="numero" id="Text2" runat="server">
+                    <input class="campoInstrutor" type="text" name="numero" id="estado" runat="server">
                 </div>
 
                 <input class="submit" type="submit" id="btnCadastrar" value="Cadastrar" onclick="Cadastrar(event)">
@@ -103,6 +103,8 @@
                         //$("#cep").val(instrutor.Cep);
                         $("#endereco").val(instrutor.Endereco);
                         $("#numero").val(instrutor.NumeroEndereco);
+                        $("#cidade").val(instrutor.Cidade);
+                        $("#estado").val(instrutor.Uf);
                         $("#btnCadastrar").val("Editar");
 
                         // Muda o onclick para "EditarCadastro"
@@ -144,8 +146,8 @@
                         // Se o CEP foi encontrado, preenche os campos do endereço
                         document.getElementById('endereco').value = data.logradouro;
                         //document.getElementById('bairro').value = data.bairro;
-                        //document.getElementById('cidade').value = data.localidade;
-                        //document.getElementById('estado').value = data.uf;
+                       document.getElementById('cidade').value = data.localidade;
+                        document.getElementById('estado').value = data.uf;
 
                     }
                 })
@@ -159,10 +161,12 @@
             telefone = $("#telefone").val();
             cep = $("#cep").val();
             numero = $("#numero").val();
-            endereco = $("#endereco").val();
+            endereco = $("#endereco").val();  
+          cidade = $("#cidade").val();
+            estado = $("#estado").val();
 
             // Verifica se os campos não estão vazios
-            if (nome === "" || telefone === "" || cep === "" || endereco === "" || numero === "") {
+            if (nome === "" || telefone === "" || cep === "" || endereco === "" || numero === "" || cidade ==="" || estado ==="") {
                 Swal.fire({
                     icon: 'warning',
                     title: 'Por favor, preencha todos os campos.',
@@ -243,7 +247,7 @@
                 $.ajax({
                     type: "POST",
                     url: "Cadastro.ashx/Cadastrar",
-                    data: { nome: nome, telefone: telefone, cep: cep, endereco: endereco, numero: numero, method: "CadastrarInstrutor" },
+                    data: { nome: nome, telefone: telefone, cep: cep, endereco: endereco, numero: numero, uf:estado, cidade:cidade, method: "CadastrarInstrutor" },
                     success: function (response) {
                         var resultado = JSON.parse(response);
 
@@ -298,7 +302,7 @@
                 $.ajax({
                     type: "POST",
                     url: "Cadastro.ashx/Cadastrar",
-                    data: { id: idInstrutor, nome: nome, telefone: telefone, cep: cep, endereco: endereco, numero: numero, method: "EditarInstrutor" },
+                    data: { id: idInstrutor, nome: nome, telefone: telefone, cep: cep, endereco: endereco, numero: numero, uf:estado, cidade:cidade, method: "EditarInstrutor" },
                     success: function (response) {
                         var resultado = JSON.parse(response);
 

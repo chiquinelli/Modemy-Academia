@@ -138,6 +138,8 @@
                             <asp:BoundField DataField="IdInstrutor" HeaderText="Id" Visible="false" />
                             <asp:BoundField DataField="NomeCompleto" HeaderText="Nome Completo" />
                             <asp:BoundField DataField="Endereco" HeaderText="Endereco" />
+                            <asp:BoundField DataField="Cidade" HeaderText="Cidade" />
+                            <asp:BoundField DataField="Uf" HeaderText="UF" />
                             <asp:BoundField DataField="NumeroEndereco" HeaderText="Numero" />
                             <asp:BoundField DataField="Cep" HeaderText="CEP" />
                             <asp:BoundField DataField="Telefone" HeaderText="Telefone" />
