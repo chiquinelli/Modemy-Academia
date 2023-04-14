@@ -60,21 +60,21 @@ namespace MuscleAcademia.Cadastro
         protected global::System.Web.UI.HtmlControls.HtmlInputText numero;
 
         /// <summary>
-        /// Controle Text1.
+        /// Controle cidade.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cidade;
 
         /// <summary>
-        /// Controle Text2.
+        /// Controle estado.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText estado;
     }
 }

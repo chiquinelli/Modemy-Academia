@@ -90,6 +90,8 @@ namespace Academia.Cadastro
             var cep = HttpContext.Current.Request.Params["cep"];
             var endereco = HttpContext.Current.Request.Params["endereco"];
             var numero = HttpContext.Current.Request.Params["numero"];
+            var uf = HttpContext.Current.Request.Params["uf"];
+            var cidade = HttpContext.Current.Request.Params["cidade"];
             //instacia da entidade cadastro
             MuscleAcademia.Entidades.Instrutor Instrutor = new MuscleAcademia.Entidades.Instrutor();
             try
@@ -100,6 +102,8 @@ namespace Academia.Cadastro
                 Instrutor.Cep = cep;
                 Instrutor.Telefone = telefone;
                 Instrutor.NumeroEndereco = numero;
+                Instrutor.Cidade = cidade;
+                Instrutor.Uf = uf;
                 Instrutor.IdAcademia = MuscleAcademia.Global.academiaAtiva.Id;
 
                 // Insere o novo cadastro
@@ -149,6 +153,8 @@ namespace Academia.Cadastro
             var cep = HttpContext.Current.Request.Params["cep"];
             var endereco = HttpContext.Current.Request.Params["endereco"];
             var numero = HttpContext.Current.Request.Params["numero"];
+            var uf = HttpContext.Current.Request.Params["uf"];
+            var cidade = HttpContext.Current.Request.Params["cidade"];
             //instacia da entidade cadastro
             MuscleAcademia.Entidades.Instrutor CadastroInstrutor = new MuscleAcademia.Entidades.Instrutor();
 
