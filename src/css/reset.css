@@ -1,16 +1,16 @@
 body {
     margin: 0px;
     padding: 0px;
-    background: #000923;
+    background-color: firebrick;
     color: aliceblue;
     font-family: 'Poppins';
-    background: #000919 url(../src/imagens/fundo.png) no-repeat top center;
+    background: green url(./imagens/fundo.jpg) no-repeat top center;
 }
 
-header.cabecalho {
+.cabecalho {
     width: 100%;
     height: 13vh;
-    background-color: #000919;
+    background: #000919;
     margin: 0;
     padding: 0;
     display: flex;
@@ -18,27 +18,27 @@ header.cabecalho {
     justify-content: space-between;
 }
 
-.cabecalho ul {
-    justify-content: center;
-    display: flex;
-    /* flex-wrap: wrap; */
-    align-items: center;
-}
+    .cabecalho ul {
+        justify-content: center;
+        display: flex;
+        /* flex-wrap: wrap; */
+        align-items: center;
+    }
 
-.cabecalho img {
-    width: 8%;
-    height: 85%;
-    margin-left: 10px;
-    padding: 10px 15px;
-}
+    .cabecalho img {
+        width: 8%;
+        height: 85%;
+        margin-left: 10px;
+        padding: 10px 15px;
+    }
 
-.nome-usuario {
+.nomeUsuario {
     float: right;
     color: #fff;
     display: inline;
 }
 
-.nome-academia {
+.nomeAcademia {
     clear: both;
     float: right;
     color: #f68a00;

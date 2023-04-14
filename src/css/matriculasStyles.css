@@ -1,4 +1,41 @@
-﻿main.dados-matricula {
+﻿.cabecalho {
+    width: 100%;
+    height: 13vh;
+    background: #000919;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+    .cabecalho ul {
+        justify-content: center;
+        display: flex;
+        /* flex-wrap: wrap; */
+        align-items: center;
+    }
+
+    .cabecalho img {
+        width: 8%;
+        height: 85%;
+        margin-left: 10px;
+        padding: 10px 15px;
+    }
+
+.nomeUsuario {
+    float: right;
+    color: #fff;
+    display: inline;
+}
+
+.nomeAcademia {
+    clear: both;
+    float: right;
+    color: #f68a00;
+}
+
+main.dadosMatricula {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -12,7 +49,7 @@
     gap: 60px;
 }
 
-.mes-atual {
+.mesAtual {
     margin: 10px auto;
     text-align: center;
     width: auto;
@@ -20,11 +57,11 @@
     font-size: 1.2em;
 }
 
-.mes-atual h3 {
+.mesAtual h3 {
         color: #ffffff;
     }
 
-.total-matriculas {
+.totalMatriculas {
     text-align: center;
     margin: -100px auto;
     width: auto;
@@ -32,18 +69,18 @@
     font-size: 1.2em;
 }
 
-.doze-meses {
+.dozeMeses {
     width: 100%;
     font-size: 1.2em;
 }
 
-.doze-meses h3 {
+.dozeMeses h3 {
         margin-top: 30px;
         color: #ffffff;
         text-align: center;
 }
 
-.dado-mes {
+.dadoMes {
     font-weight: bolder;
     color: #f68a00;
     font-size: 1.3em;
@@ -61,3 +98,34 @@
     font-weight: bold;
     color: #f68a00;
 }
+
+nav.navegacao {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+    justify-content: center;
+    ;
+}
+
+    nav.navegacao ul {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: space-around;
+        margin: 20px auto;
+    }
+
+        nav.navegacao ul li a {
+            font-weight: bold;
+            padding: 8px;
+        }
+
+            nav.navegacao ul li a:hover {
+                background-color: #33ddc6;
+                border-radius: 50px;
+                text-decoration: none;
+                transition: 0.8s;
+            }
+

@@ -23,86 +23,90 @@
 <body>
 
     <header class="cabecalho">
-        <img src="./src/imagens/perfil.png" alt="imagem de perfil">
+        <img src="./src/imagens/perfil.png" alt="">
+        <ul>
+            <li class="nomeUsuario">Nome do usuário</li>
+            <li class="nomeAcademia">Nome academia</li>
+        </ul>
 
-        <span class="titulo">Relação de matrículas</span>
+        <span class="titulo">Relação de desistências</span>
         <a href="login.html" class="sair">Sair</a>
     </header>
 
-    <main class="dados-matricula">
-        <div class="mes-atual">
+    <main class="dadosMatricula">
+        <div class="mesAtual">
             <h3>Matrículas no mês atual</h3>
             <asp:Literal runat="server" ID="QtdMesAtual"></asp:Literal>
         </div>
 
-        <div class="total-matriculas">
+        <div class="totalMatriculas">
             <h3>Total de matrículas</h3>
             <asp:Literal runat="server" ID="TotalMatriculas"></asp:Literal>
         </div>
 
-        <div class="doze-meses">
+        <div class="dozeMeses">
             <h3>Relação dos últimos 12 meses</h3>
 
             <ul class="meses">
                 <li>
                     <h4>JAN</h4>
-                <asp:Literal runat="server" ID="QtdMatriculas"></asp:Literal>
+                    <asp:Literal runat="server" ID="QtdMatriculas"></asp:Literal>
                 </li>
 
                 <li>
                     <h4>FEV</h4>
-                    <p class="mes">80</p> 
+                    <p class="mes">80</p>
                 </li>
 
                 <li>
                     <h4>MAR</h4>
-                    <p class="mes">80</p> 
+                    <p class="mes">80</p>
                 </li>
 
                 <li>
                     <h4>ABR</h4>
-                    <p class="mes">80</p> 
+                    <p class="mes">80</p>
                 </li>
 
                 <li>
                     <h4>MAI</h4>
-                    <p class="mes">80</p> 
+                    <p class="mes">80</p>
                 </li>
-                
+
                 <li>
                     <h4>JUN</h4>
-                    <p class="mes">80</p> 
+                    <p class="mes">80</p>
                 </li>
 
                 <li>
                     <h4>JUL</h4>
-                    <p class="mes">80</p> 
+                    <p class="mes">80</p>
                 </li>
 
                 <li>
                     <h4>AGO</h4>
-                    <p class="mes">80</p> 
+                    <p class="mes">80</p>
                 </li>
 
                 <li>
                     <h4>SET</h4>
-                    <p class="mes">80</p> 
+                    <p class="mes">80</p>
                 </li>
 
                 <li>
                     <h4>OUT</h4>
-                    <p class="mes">80</p> 
+                    <p class="mes">80</p>
                 </li>
 
                 <li>
                     <h4>NOV</h4>
-                    <p class="mes">80</p> 
+                    <p class="mes">80</p>
 
                 </li>
 
                 <li>
                     <h4>DEZ</h4>
-                    <p class="mes">80</p> 
+                    <p class="mes">80</p>
 
                 </li>
             </ul>
@@ -111,15 +115,14 @@
 
     <footer>
         <nav class="navegacao">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Matrículas</a></li>
-            <li><a href="desistencias.html">Desistentes</a></li>
-            <li><a href="instrutores.html">Instrutores</a></li>
-            <li><a href="">Dados</a></li>
-        </ul>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Matrículas</a></li>
+                <li><a href="desistencias.html">Desistentes</a></li>
+                <li><a href="instrutores.html">Instrutores</a></li>
+            </ul>
         </nav>
     </footer>
-    
+
 </body>
 </html>
