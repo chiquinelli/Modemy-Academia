@@ -1,0 +1,136 @@
+﻿main.dadosDesistentes {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    padding: auto auto;
+    margin: 25px auto;
+    width: 90%;
+    height: 70%;
+    background-color: #41405360;
+    border-radius: 50px;
+    gap: 60px;
+}
+
+.cabecalho {
+    width: 100%;
+    height: 13vh;
+    background: #000919;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cabecalho ul {
+    justify-content: center;
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+}
+
+.cabecalho img {
+    width: 8%;
+    height: 85%;
+    margin-left: 10px;
+    padding: 10px 15px;
+}
+
+.nomeUsuario {
+    float: right;
+    color: #fff;
+    display: inline;
+}
+
+.nomeAcademia {
+    clear: both;
+    float: right;
+    color: #f68a00;
+}
+
+.titulo {
+    position: relative;
+    margin: auto auto;
+    font-size: 1.4em;
+    color: #fff;
+    text-align: center;
+}
+
+.mesAtual {
+    margin: 10px auto;
+    text-align: center;
+    width: auto;
+    height: 150px;
+    font-size: 1.2em;
+}
+
+    .mesAtual h3 {
+        color: #ffffff;
+    }
+
+.totalDesistencias {
+    text-align: center;
+    margin:auto;
+    width: auto;
+    height: 150px;
+    font-size: 1.2em;
+}
+
+.dozeMeses {
+    width: 100%;
+    font-size: 1.2em;
+}
+
+.dozeMeses h3 {
+        margin-top: 30px;
+        color: #ffffff;
+        text-align: center;
+    }
+
+.dadoMes {
+    font-weight: bolder;
+    color: #f68a00;
+    font-size: 1.3em;
+}
+
+.meses {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.mes {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f68a00;
+}
+
+nav.navegacao{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+    justify-content: center;;
+}
+
+nav.navegacao ul{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px auto;
+}
+
+nav.navegacao ul li a{
+    font-weight: bold;  
+    padding: 8px;
+}
+
+nav.navegacao ul li a:hover{
+    background-color: #33ddc6;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.8s;
+}

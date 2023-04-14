@@ -7,6 +7,43 @@ body {
     background: #000919 url(../src/imagens/fundo.png) no-repeat top center;
 }
 
+header.cabecalho {
+    width: 100%;
+    height: 13vh;
+    background-color: #000919;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cabecalho ul {
+    justify-content: center;
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+}
+
+.cabecalho img {
+    width: 8%;
+    height: 85%;
+    margin-left: 10px;
+    padding: 10px 15px;
+}
+
+.nome-usuario {
+    float: right;
+    color: #fff;
+    display: inline;
+}
+
+.nome-academia {
+    clear: both;
+    float: right;
+    color: #f68a00;
+}
+
 ul{
     list-style: none;
 }

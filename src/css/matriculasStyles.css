@@ -1,0 +1,63 @@
+﻿main.dados-matricula {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: auto auto;
+    margin: 25px auto;
+    width: 90%;
+    height: 70%;
+    background-color: #41405360;
+    border-radius: 50px;
+    gap: 60px;
+}
+
+.mes-atual {
+    margin: 10px auto;
+    text-align: center;
+    width: auto;
+    height: 150px;
+    font-size: 1.2em;
+}
+
+.mes-atual h3 {
+        color: #ffffff;
+    }
+
+.total-matriculas {
+    text-align: center;
+    margin: -100px auto;
+    width: auto;
+    height: 150px;
+    font-size: 1.2em;
+}
+
+.doze-meses {
+    width: 100%;
+    font-size: 1.2em;
+}
+
+.doze-meses h3 {
+        margin-top: 30px;
+        color: #ffffff;
+        text-align: center;
+}
+
+.dado-mes {
+    font-weight: bolder;
+    color: #f68a00;
+    font-size: 1.3em;
+}
+
+.meses {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.mes {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f68a00;
+}
