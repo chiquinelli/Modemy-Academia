@@ -1,6 +1,15 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Cadastro",
+    "\\Entidades",
+    "\\fonts",
+    "\\Instrutor",
+    "\\Login",
+    "\\obj",
+    "\\src",
+    "\\src\\css"
   ],
+  "SelectedNode": "\\src\\css\\loginStyles.css",
   "PreviewInSolutionExplorer": false
 }

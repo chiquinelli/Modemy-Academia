@@ -1,0 +1,221 @@
+/* Estilização geral da tabela */
+.dados-instrutores table {
+    /*            border-collapse: collapse;
+*/ width: 100%;
+    /*margin-left: 10%;
+            margin-top: 10%;*/
+}
+
+/* Estilização dos cabeçalhos da tabela */
+.dados-instrutores th {
+    /*            border: 1px solid #ddd;
+*/ font-weight: bold;
+    padding: 8px;
+    text-align: center;
+}
+
+/* Estilização das células da tabela */
+.dados-instrutores td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.lstEditarBtn {
+    width: 100%;
+    background-color: #FF8C00;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.lstExcluirBtn {
+    font-weight: bold;
+    width: 100%;
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+/* Estilização da primeira coluna da tabela (IdInstrutor) */
+/*    .dados-instrutores td:nth-child(1) {
+        display: none;
+    }*/
+
+/* Estilização do botão de cadastrar instrutor */
+.btn-cadastro-instrutor {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+/* Estilização do botão de remover instrutor */
+.btn-remover-instrutor {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.cabecalho-itens {
+    width: 100%;
+    height: 13vh;
+    background: #000919;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cabecalho ul {
+    justify-content: center;
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+}
+
+.cabecalho img {
+    width: 8%;
+    height: 85%;
+    margin-left: 10px;
+    padding: 10px 15px;
+}
+
+.nome-usuario {
+    float: right;
+    color: #fff;
+    display: inline;
+}
+
+.nome-academia {
+    clear: both;
+    float: right;
+    color: #f68a00;
+}
+
+#container-instrutores {
+    width: 1250px;
+    height: auto;
+    margin: 25px auto;
+    background-color: #4140533d;
+    border-radius: 50px;
+}
+
+.dados-instrutores {
+    display: flex;
+}
+
+.campo-instrutor h3 {
+    color: #f68a00;
+}
+
+.campo-instrutor {
+    padding: 40px;
+    color: #fff;
+}
+
+.cadastrar-instrutor {
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 0px;
+    margin: auto auto;
+}
+
+.quantidade-instrutores {
+    font-weight: bolder;
+    font-size: 1.8em;
+    margin-top: 5px;
+}
+
+.btn-cadastro-instrutor {
+    width: auto;
+    height: 40px;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 1em;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.btn-cadastro-instrutor:hover {
+    cursor: pointer;
+    background-color: #33ddc6;
+    transition: 0.2s;
+}
+
+.btn-remover-instrutor {
+    background-color: #000919;
+    width: auto;
+    height: 40px;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 1em;
+    border: none;
+}
+
+.btn-remover-instrutor:hover {
+    cursor: pointer;
+    background-color: #df0000;
+    transition: 0.2s;
+    }
+
+
+nav.navegacao {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+    justify-content: center;
+}
+
+nav.navegacao ul {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px auto;
+}
+
+nav.navegacao ul li a {
+    font-weight: bold;
+    padding: 8px;
+}
+
+nav.navegacao ul li a:hover {
+    background-color: #33ddc6;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.8s;
+}

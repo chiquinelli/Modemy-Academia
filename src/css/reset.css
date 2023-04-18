@@ -1,10 +1,9 @@
 body {
     margin: 0px;
     padding: 0px;
-    background-color: firebrick;
     color: aliceblue;
     font-family: 'Poppins';
-    background: green url(./imagens/fundo.jpg) no-repeat top center;
+    background: #000919 url(/src/imagens/fundo.png) no-repeat top center;
 }
 
 .cabecalho {
@@ -19,18 +18,20 @@ body {
 }
 
     .cabecalho ul {
-        justify-content: center;
-        display: flex;
-        /* flex-wrap: wrap; */
-        align-items: center;
-    }
+    justify-content: center;
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+
+}
 
     .cabecalho img {
-        width: 8%;
-        height: 85%;
-        margin-left: 10px;
-        padding: 10px 15px;
-    }
+    width: 8%;
+    height: 85%;
+    margin-left: 10px;
+    padding: 10px 15px;
+
+}
 
 .nomeUsuario {
     float: right;
@@ -52,4 +53,3 @@ a{
     text-decoration: none;
     color: #fff;
 }
-

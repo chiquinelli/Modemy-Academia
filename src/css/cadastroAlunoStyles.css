@@ -1,0 +1,140 @@
+.formAluno {
+    width: 460px;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 120px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .formAluno img {
+        width: 120px;
+        height: 120px;
+        border-radius: 40px;
+        margin: -60px auto;
+        position: relative;
+    }
+
+#form1 {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px;
+    margin-top: 80px;
+    gap: 50px;
+}
+
+    #form1 input.campoAluno {
+        padding-left: 20px;
+        width: 100%;
+        border-radius: 30px;
+        border: none;
+        height: 35px;
+        color: #191b1f;
+        font-size: 1.1em;
+    }
+
+
+    #form1 input.submit {
+        width: 60%;
+        text-align: center;
+        border-radius: 50px;
+        border: none;
+        background-color: #000919;
+        color: #fff;
+        height: 35px;
+        margin: auto auto;
+        justify-content: center;
+        margin-left: 60px;
+        margin-top: 15px;
+        font-size: 1.1em;
+    }
+
+        #form1 input.submit:hover {
+            background-color: #33ddc6;
+            cursor: pointer;
+            transition: ease-in-out 0.3s;
+        }
+
+    #form1 input.cancel {
+        width: 60%;
+        text-align: center;
+        border-radius: 50px;
+        border: none;
+        background-color: #df0000;
+        color: #fff;
+        height: 35px;
+        margin: auto auto;
+        justify-content: center;
+        margin-left: 60px;
+        margin-top: 5px;
+        font-size: 1.1em;
+    }
+
+        #form1 input.cancel:hover {
+            background-color: darkred;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+.divSituacao {
+    margin: auto;
+    margin-top: 15px;
+}
+
+.ativo {
+    color: rgb(3, 255, 3);
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 1.1em;
+}
+
+.inativo {
+    color: red;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 1.1em;
+}
+
+label {
+    width: auto;
+}
+
+.prr {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.divName {
+    width: 100%;
+}
+
+.divTelefone {
+    width: 55%;
+    margin-right: auto;
+}
+
+.divCep {
+    width: 37%;
+}
+
+.divEndereco {
+    width: 80%;
+    margin-right: auto;
+}
+
+.divNumero {
+    width: 12%;
+    margin-left: auto;
+}
+
+.divCidade {
+    width: 70%;
+    margin-right: auto;
+}
+
+.divEstado {
+    width: 20%;
+    margin-left: auto;
+}

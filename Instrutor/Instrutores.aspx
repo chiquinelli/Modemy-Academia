@@ -11,7 +11,8 @@
 
     <title>Document</title>
 
-    <link rel="stylesheet" href="../src/css/styles.css">
+    <link rel="stylesheet" href="../src/css/instrutoresStyles.css">
+    <link rel="stylesheet" href="../src/css/style.css">
     <link rel="stylesheet" href="../src/css/responsive.css">
     <link rel="stylesheet" href="../src/css/reset.css">
 
@@ -20,93 +21,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Poppins:wght@100;300;500&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <style>
-        /* Estilização geral da tabela */
-        .dados-instrutores table {
-            /*            border-collapse: collapse;
-*/ width: 100%;
-            /*margin-left: 10%;
-            margin-top: 10%;*/
-        }
-
-        /* Estilização dos cabeçalhos da tabela */
-        .dados-instrutores th {
-            /*            border: 1px solid #ddd;
-*/ font-weight: bold;
-            padding: 8px;
-            text-align: center;
-        }
-
-        /* Estilização das células da tabela */
-        .dados-instrutores td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-
-        .lstEditarBtn {
-            width: 100%;
-            background-color: #FF8C00;
-            border: none;
-            color: white;
-            padding: 12px 24px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .lstExcluirBtn {
-            font-weight: bold;
-            width: 100%;
-            background-color: #f44336;
-            border: none;
-            color: white;
-            padding: 12px 24px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-
-        /* Estilização da primeira coluna da tabela (IdInstrutor) */
-        /*    .dados-instrutores td:nth-child(1) {
-        display: none;
-    }*/
-
-        /* Estilização do botão de cadastrar instrutor */
-        .btn-cadastro-instrutor {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 12px 24px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-
-        /* Estilização do botão de remover instrutor */
-        .btn-remover-instrutor {
-            background-color: #f44336;
-            border: none;
-            color: white;
-            padding: 12px 24px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
 
