@@ -47,14 +47,14 @@
     <main id="area-conteudo">
 
         <section class="campos">
-            <a href="matriculas.html">
+            <a href="Aluno/alunos">
                 <h4>MATRÍCULAS</h4>
                 <asp:Literal runat="server" ID="QtdMatriculas"></asp:Literal>
             </a>
         </section>
 
         <section class="campos">
-            <a href="desistencias.html">
+            <a href="Aluno/alunos">
                 <h4>DESISTÊNCIAS</h4>
                 <asp:Literal runat="server" ID="QtdDesistencias"></asp:Literal>
             </a>
