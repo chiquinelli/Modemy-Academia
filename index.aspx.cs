@@ -25,7 +25,6 @@ namespace MuscleAcademia
 
                     if (lstInstrutores != null && lstInstrutores.Count > 0){ QtdIntrutores.Text = lstInstrutores.Count().ToString(); }
                     if (lstAlunos != null && lstAlunos.Count > 0){ QtdMatriculas.Text = lstAlunos.Count().ToString(); }
-                    //var lstInativos = lstAlunos.Select(t => t.Ativo = false).ToList();
                     var lstInativos = lstAlunos.Where(f => f.Ativo = false).ToList();
                     if (lstInativos != null && lstInativos.Count > 0) { QtdDesistencias.Text = lstInativos.Count().ToString(); }
                 }
