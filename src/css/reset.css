@@ -22,27 +22,26 @@ body {
     display: flex;
     /* flex-wrap: wrap; */
     align-items: center;
-
 }
 
-    .cabecalho img {
-    width: 8%;
-    height: 85%;
-    margin-left: 10px;
-    padding: 10px 15px;
 
+.dadosUsuario {
+    justify-content: center;
+    line-height: unset;
+    text-align: center;
 }
 
 .nomeUsuario {
     float: right;
     color: #fff;
     display: inline;
+    text-align: center;
+    font-size: 1.1em;
 }
 
-.nomeAcademia {
-    clear: both;
-    float: right;
-    color: #f68a00;
+.cabecalho.sair{
+    display:inline;
+    cursor: pointer;
 }
 
 ul{

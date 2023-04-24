@@ -43,7 +43,7 @@
         </div>
 
         <div>
-            <a class="criar" href="cadastro.html">Não possui acesso? Crie agora</a>
+            <a class="criar" href=" ../Cadastro/cadastro.html">Não possui acesso? Crie agora</a>
         </div>
 
     </div>
