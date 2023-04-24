@@ -1,4 +1,20 @@
-﻿.cabecalho {
+﻿@media(max-width: 480px){
+
+}
+
+@media(max-width: 768px) {
+
+}
+
+@media(max-width: 1024px) {
+
+}
+
+@media(max-width: 1200px) {
+
+}
+
+.cabecalho {
     width: 100%;
     height: 13vh;
     background-color: #000919;
@@ -16,23 +32,40 @@
     align-items: center;
 }
 
-.cabecalho img {
-    width: 8%;
-    height: 85%;
-    margin-left: 10px;
-    padding: 10px 15px;
+.dadosUsuario{
+    justify-content:center;
+    line-height:unset;
+    text-align: center;
+    width: auto;
+    display: flex;
 }
 
 .nomeUsuario {
     float: right;
     color: #fff;
     display: inline;
+    text-align: center;
+    font-size: 1.1em;
 }
 
 .nomeAcademia {
     clear: both;
     float: right;
     color: #f68a00;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.9em;
+    display: flex;
+    padding-top:25px;
+    font-weight: bolder;
+    margin-left:-60px;
+}
+
+.cabecalho img {
+    width: 80px;
+    height: 85%;
+    margin-left: 10px;
+    padding: 5px 10px;
 }
 
 .mes {
@@ -52,8 +85,7 @@
     color: #fff;
     margin: auto 25px;
     top: 25px;
-    padding-left: 0px;
-    padding-left: 900px;
+    cursor: pointer;
 }
 
 #area-conteudo {
@@ -75,6 +107,10 @@
     font-size: 1.7em;
     color: #fff;
     align-items: center;
+}
+
+.campos a{
+    display: block;
 }
 
 

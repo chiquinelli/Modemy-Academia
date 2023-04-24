@@ -23,14 +23,18 @@
 <body>
 
     <header class="cabecalho">
-        <img src="./src/imagens/perfil.png" alt="">
-        <ul>
-            <li class="nomeUsuario">Nome do usuário</li>
-            <li class="nomeAcademia">Nome academia</li>
-        </ul>
+        <div class="dadosUsuario">
+            <img class="fotoPerfil" src="src/imagens/perfil.png" alt="">
+            <p class="nomeUsuario">
+                <asp:Literal runat="server" ID="nomeUser"></asp:Literal>
+            </p>
+        </div>
+        <div class="nomeAcademia">
+            <asp:Literal runat="server" ID="nomeAcademia"></asp:Literal>
+        </div>
 
-        <span class="titulo">Relação de desistências</span>
-        <a href="login.html" class="sair">Sair</a>
+        <a onclick="Sair()" class="sair">Sair</a>
+
     </header>
 
     <main class="dadosDesistentes">

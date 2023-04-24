@@ -12,7 +12,6 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="../src/css/instrutoresStyles.css">
-    <link rel="stylesheet" href="../src/css/style.css">
     <link rel="stylesheet" href="../src/css/responsive.css">
     <link rel="stylesheet" href="../src/css/reset.css">
 
@@ -25,20 +24,17 @@
 <body>
 
     <header class="cabecalho">
-        <div class="cabecalho-itens">
-            <img src="../src/imagens/perfil.png" alt="">
-            <ul>
-                <li class="nome-usuario">
-                    <asp:Literal runat="server" ID="nomeUser"></asp:Literal></li>
-                <li class="nome-academia">
+        <div class="dadosUsuario">
+                <img class="fotoPerfil" src="../src/imagens/perfil.png" alt="">
+                <p class="nomeUsuario">
+                    <asp:Literal runat="server" ID="nomeUser"></asp:Literal></p>
+                </div>
+                <div class="nomeAcademia">
                     <asp:Literal runat="server" ID="nomeAcademia"></asp:Literal>
-                </li>
-
-            </ul>
+                </div>
 
             <a onclick="Sair()" class="sair">Sair</a>
 
-        </div>
     </header>
 
 
@@ -90,7 +86,7 @@
     <footer>
         <nav class="navegacao">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../index.aspx">Home</a></li>
                 <li><a href="matriculas.html">Matrículas</a></li>
                 <li><a href="desistencias.html">Desistentes</a></li>
                 <li><a href="#">Instrutores</a></li>

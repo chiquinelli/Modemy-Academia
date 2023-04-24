@@ -28,20 +28,17 @@
 </head>
 <body>
     <header class="cabecalho">
-        <div class="cabecalho-itens">
-            <img src="src/imagens/perfil.png" alt="">
-            <ul>
-                <li class="nome-usuario">
-                    <asp:Literal runat="server" ID="nomeUser"></asp:Literal></li>
-                <li class="nome-academia">
+        <div class="dadosUsuario">
+                <img class="fotoPerfil" src="../src/imagens/perfil.png" alt="">
+                <p class="nomeUsuario">
+                    <asp:Literal runat="server" ID="nomeUser"></asp:Literal></p>
+                </div>
+                <div class="nomeAcademia">
                     <asp:Literal runat="server" ID="nomeAcademia"></asp:Literal>
-                </li>
-
-            </ul>
+                </div>
 
             <a onclick="Sair()" class="sair">Sair</a>
 
-        </div>
     </header>
 
     <main id="area-conteudo">
