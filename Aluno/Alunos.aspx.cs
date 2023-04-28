@@ -17,7 +17,16 @@ namespace MuscleAcademia.Aluno
                 {
                     nomeUser.Text = Global.academiaAtiva.Nome.ToString();
                     nomeAcademia.Text = Global.academiaAtiva.Instituicao.ToString();
-                    var Alunos = carregarAlunos();
+                    _ = new List<Models.Aluno>();
+                    List<Models.Aluno> Alunos;
+                    if (Request.QueryString["Ativo"] != null && Request.QueryString["Ativo"].ToString().ToLower() == "false")
+                    {
+                        Alunos = carregarAlunos(false);
+                    }
+                    else
+                    {
+                        Alunos = carregarAlunos();
+                    }
                     if (Alunos != null && Alunos.Count > 0)
                     {
                         foreach (var aluno in Alunos)
@@ -38,10 +47,11 @@ namespace MuscleAcademia.Aluno
             }
         }
 
-        private List<Models.Aluno> carregarAlunos()
+        private List<Models.Aluno> carregarAlunos(bool ativo = true)
         {
             Entidades.Aluno Aluno = new Entidades.Aluno();
-            return Aluno.ObterPorIdAcademia(Global.academiaAtiva.Id);
+            if (ativo) { return Aluno.ObterPorIdAcademia(Global.academiaAtiva.Id); } else { return Aluno.ObterPorIdAcademia(Global.academiaAtiva.Id, false); }
+
         }
         protected void lstAlunos_RowCommand(object sender, GridViewCommandEventArgs e)
         {

@@ -1,4 +1,5 @@
 ﻿using MuscleAcademia.Entidades;
+using MuscleAcademia.Stark;
 using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
@@ -54,7 +55,7 @@ namespace MuscleAcademia.Instrutor
             switch (e.CommandName)
             {
                 case "Editar":
-                    Response.Redirect("../Cadastro/cadastroInstrutor.aspx?idInstrutor=" + idInstrutor);
+                    Response.Redirect("../Cadastro/cadastroInstrutor.aspx?idInstrutor=" + SextaFeira.Encrypt(idInstrutor));
                     break;
                 case "Excluir":
                     Instrutor.Excluir(idInstrutor);

@@ -65,13 +65,16 @@ namespace MuscleAcademia.Entidades
                 command.ExecuteNonQuery();
             }
         }
-        public List<Models.Aluno> ObterPorIdAcademia(int idAcademia)
+        public List<Models.Aluno> ObterPorIdAcademia(int idAcademia, bool ativo = true)
         {
             var alunos = new List<Models.Aluno>();
             using (var connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                var query = "SELECT * FROM tblalunos WHERE IdAcademia = @IdAcademia";
+                var query = String.Empty;
+                if (ativo) { query = "SELECT * FROM tblalunos WHERE IdAcademia = @IdAcademia"; }
+                if (!ativo) { query = "SELECT * FROM tblalunos WHERE IdAcademia = @IdAcademia AND Ativo = 0"; }
+
                 var command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@IdAcademia", idAcademia);
                 var reader = command.ExecuteReader();

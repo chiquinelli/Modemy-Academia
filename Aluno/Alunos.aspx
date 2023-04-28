@@ -10,7 +10,7 @@
 
     <link rel="shortcut icon" href="../src/imagens/fav-icone.png" type="image/x-icon">
 
-    <title>Document</title>
+    <title>Alunos</title>
 
     <link rel="stylesheet" href="../src/css/instrutoresStyles.css">
     <link rel="stylesheet" href="../src/css/style.css">
@@ -81,12 +81,12 @@
 
                 </div>
                 <div class="cadastrar-instrutor">
-                    <h3>Quantidade total de instrutores</h3>
+                    <h3>Quantidade total de alunos</h3>
 
                     <p class="quantidade-instrutores">
                         <asp:Literal runat="server" ID="QtdAlunos"></asp:Literal>
                     </p>
-                    <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar instrutor(a)" OnClientClick="Cadastrar(event);" CssClass="btn-cadastro-instrutor" />
+                    <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar aluno(a)" OnClientClick="Cadastrar(event);" CssClass="btn-cadastro-instrutor" />
 
                 </div>
 
@@ -115,7 +115,7 @@
     //}
     $("#btnCadastrar").click(() => {
         event.preventDefault();
-        window.location.href = "../cadastro/cadastroInstrutor"; // redireciona para a outra página
+        window.location.href = "../cadastro/cadastroAluno"; // redireciona para a outra página
     });
 
 </script>
