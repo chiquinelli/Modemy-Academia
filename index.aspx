@@ -51,7 +51,7 @@
         </section>
 
         <section class="campos">
-            <a href="Aluno/alunos">
+            <a href="Aluno/alunos?Ativo=False">
                 <h4>DESISTÊNCIAS</h4>
                 <asp:Literal runat="server" ID="QtdDesistencias"></asp:Literal>
             </a>

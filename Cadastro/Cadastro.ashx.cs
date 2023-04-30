@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MuscleAcademia.Stark;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
@@ -125,13 +126,14 @@ namespace Academia.Cadastro
         public void RecuperarObjInstrutor(HttpContext context)
         {
             // Aqui seto os valores das variaceis de acordo com os parametros enviados.
-            var id = HttpContext.Current.Request.Params["id"];
+            var idInstrutor = HttpContext.Current.Request.Params["id"];
             //instacia da entidade cadastro
             MuscleAcademia.Entidades.Instrutor Instrutor = new MuscleAcademia.Entidades.Instrutor();
             try
             {
+                var id = SextaFeira.Decrypt(idInstrutor);
                 // Insere o novo cadastro
-                var response = Instrutor.ObterPorId(int.Parse(id));
+                var response = Instrutor.ObterPorId(id);
                 // retorna um obj para ajax
                 HttpContext.Current.Response.Write(JsonConvert.SerializeObject(response));
             }

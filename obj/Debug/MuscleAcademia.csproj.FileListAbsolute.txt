@@ -192,3 +192,11 @@ C:\Users\jorge\Source\Repos\chiquinelli\Modemy-Academia\obj\Debug\MuscleAcademia
 C:\Users\jorge\Source\Repos\chiquinelli\Modemy-Academia\obj\Debug\MuscleAcademia.csproj.CopyComplete
 C:\Users\jorge\Source\Repos\chiquinelli\Modemy-Academia\obj\Debug\MuscleAcademia.dll
 C:\Users\jorge\Source\Repos\chiquinelli\Modemy-Academia\obj\Debug\MuscleAcademia.pdb
+E:\Repositorio\MuscleAcademia\bin\Microsoft.AspNetCore.WebUtilities.dll
+E:\Repositorio\MuscleAcademia\bin\Microsoft.Extensions.Primitives.dll
+E:\Repositorio\MuscleAcademia\bin\Microsoft.Net.Http.Headers.dll
+E:\Repositorio\MuscleAcademia\bin\System.Text.Encodings.Web.dll
+E:\Repositorio\MuscleAcademia\bin\Microsoft.AspNetCore.WebUtilities.xml
+E:\Repositorio\MuscleAcademia\bin\Microsoft.Extensions.Primitives.xml
+E:\Repositorio\MuscleAcademia\bin\Microsoft.Net.Http.Headers.xml
+E:\Repositorio\MuscleAcademia\bin\System.Text.Encodings.Web.xml
