@@ -47,10 +47,10 @@
                         <Columns>
                             <asp:BoundField DataField="IdInstrutor" HeaderText="Id" Visible="false" />
                             <asp:BoundField DataField="NomeCompleto" HeaderText="Nome Completo" />
-                            <asp:BoundField DataField="Endereco" HeaderText="Endereco" />
+                            <asp:BoundField DataField="Endereco" HeaderText="Endereço" />
                             <asp:BoundField DataField="Cidade" HeaderText="Cidade" />
                             <asp:BoundField DataField="Uf" HeaderText="UF" />
-                            <asp:BoundField DataField="NumeroEndereco" HeaderText="Numero" />
+                            <asp:BoundField DataField="NumeroEndereco" HeaderText="Nº" />
                             <asp:BoundField DataField="Cep" HeaderText="CEP" />
                             <asp:BoundField DataField="Telefone" HeaderText="Telefone" />
                             <asp:TemplateField HeaderText="">
@@ -70,12 +70,12 @@
 
                 </div>
                 <div class="cadastrar-instrutor">
-                    <h3>Quantidade total de instrutores</h3>
+                    <h3>Quantidade de instrutores</h3>
 
                     <p class="quantidade-instrutores">
                         <asp:Literal runat="server" ID="QtdIntrutores"></asp:Literal>
                     </p>
-                    <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar instrutor(a)" OnClientClick="Cadastrar(event);" CssClass="btn-cadastro-instrutor" />
+                    <asp:Button ID="btnCadastrar" runat="server" Text="Novo instrutor(a)" OnClientClick="Cadastrar(event);" CssClass="btn-cadastro-instrutor" />
                     <%--                    <br>
                     <button class="btn-remover-instrutor">Remover instrutor(a)</button>--%>
                 </div>
@@ -87,10 +87,9 @@
         <nav class="navegacao">
             <ul>
                 <li><a href="../index.aspx">Home</a></li>
-                <li><a href="matriculas.html">Matrículas</a></li>
-                <li><a href="desistencias.html">Desistentes</a></li>
+                <li><a href="../Aluno/Alunos.aspx">Matrículas</a></li>
+                <li><a href="#">Desistentes</a></li>
                 <li><a href="#">Instrutores</a></li>
-                <li><a href="dados.html">Dados</a></li>
             </ul>
         </nav>
     </footer>

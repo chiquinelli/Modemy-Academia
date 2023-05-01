@@ -219,7 +219,7 @@
 
         }
         function Voltar() {
-            window.location.href = '../index';
+            window.location.href = '../Instrutor/Instrutores.aspx';
 
         }
         function CarregarObj(idInstrutor, callback) {

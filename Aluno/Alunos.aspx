@@ -25,21 +25,18 @@
 </head>
 <body>
 
-    <header class="cabecalho">
-        <div class="cabecalho-itens">
-            <img src="../src/imagens/perfil.png" alt="">
-            <ul>
-                <li class="nome-usuario">
-                    <asp:Literal runat="server" ID="nomeUser"></asp:Literal></li>
-                <li class="nome-academia">
+ <header class="cabecalho">
+        <div class="dadosUsuario">
+                <img class="fotoPerfil" src="../src/imagens/perfil.png" alt="">
+                <p class="nomeUsuario">
+                    <asp:Literal runat="server" ID="nomeUser"></asp:Literal></p>
+                </div>
+                <div class="nomeAcademia">
                     <asp:Literal runat="server" ID="nomeAcademia"></asp:Literal>
-                </li>
-
-            </ul>
+                </div>
 
             <a onclick="Sair()" class="sair">Sair</a>
 
-        </div>
     </header>
 
 
@@ -96,11 +93,10 @@
     <footer>
         <nav class="navegacao">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="matriculas.html">Matrículas</a></li>
-                <li><a href="desistencias.html">Desistentes</a></li>
-                <li><a href="#">Instrutores</a></li>
-                <li><a href="dados.html">Dados</a></li>
+                <li><a href="../index.aspx">Home</a></li>
+                <li><a href="#">Matrículas</a></li>
+                <li><a href="#">Desistentes</a></li>
+                <li><a href="../Instrutor/Instrutores.aspx">Instrutores</a></li>
             </ul>
         </nav>
     </footer>

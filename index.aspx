@@ -64,11 +64,6 @@
             </a>
         </section>
 
-        <section class="campos">
-            <a href="dados.html">
-                <h4>DADOS DE FREQUÊNCIA</h4>
-            </a>
-        </section>
     </main>
 
     <!--</div>-->

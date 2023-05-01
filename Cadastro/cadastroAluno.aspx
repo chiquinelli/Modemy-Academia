@@ -220,7 +220,7 @@
 
     //}
     function Voltar() {
-        window.location.href = '../index';
+        window.location.href = '../Aluno/Alunos.aspx';
 
     }
     function CarregarObj(idInstrutor, callback) {
