@@ -17,7 +17,7 @@ namespace MuscleAcademia.Entidades
             using (var connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                var query = "INSERT INTO tblalunos (NomeCompleto, Endereco, NumeroEndereco, Cep, Telefone, Cidade, Uf, Ativo, IdAcademia) VALUES (@NomeCompleto, @Endereco, @NumeroEndereco, @Cep, @Telefone, @Cidade, @Uf,@Ativo @IdAcademia); SELECT LAST_INSERT_ID();";
+                var query = "INSERT INTO tblalunos (NomeCompleto, Endereco, NumeroEndereco, Cep, Telefone, Cidade, Uf, Ativo, IdAcademia) VALUES (@NomeCompleto, @Endereco, @NumeroEndereco, @Cep, @Telefone, @Cidade, @Uf,@Ativo, @IdAcademia); SELECT LAST_INSERT_ID();";
                 var command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@NomeCompleto", aluno.NomeCompleto);
                 command.Parameters.AddWithValue("@Endereco", aluno.Endereco);

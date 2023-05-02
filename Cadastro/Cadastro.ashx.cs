@@ -36,6 +36,17 @@ namespace Academia.Cadastro
                 case "EditarInstrutor":
                     EditarInstrutor(context);
                     break;
+                case "CadastrarAluno":
+                    CadastrarAluno(context);
+                    break;
+
+                case "RecuperarObjAluno":
+                    RecuperarObjAluno(context);
+                    break;
+
+                case "EditarAluno":
+                    EditarAluno(context);
+                    break;
 
                 default:
                     context.Response.ContentType = "text/plain";
@@ -97,7 +108,7 @@ namespace Academia.Cadastro
             MuscleAcademia.Entidades.Instrutor Instrutor = new MuscleAcademia.Entidades.Instrutor();
             try
             {
-                Instrutor.IdInstrutor = int.Parse(id);
+                Instrutor.IdInstrutor = SextaFeira.Decrypt(id);
                 Instrutor.NomeCompleto = nome;
                 Instrutor.Endereco = endereco;
                 Instrutor.Cep = cep;
@@ -125,7 +136,6 @@ namespace Academia.Cadastro
         [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
         public void RecuperarObjInstrutor(HttpContext context)
         {
-            // Aqui seto os valores das variaceis de acordo com os parametros enviados.
             var idInstrutor = HttpContext.Current.Request.Params["id"];
             //instacia da entidade cadastro
             MuscleAcademia.Entidades.Instrutor Instrutor = new MuscleAcademia.Entidades.Instrutor();
@@ -144,7 +154,25 @@ namespace Academia.Cadastro
                 HttpContext.Current.Response.Write(JsonConvert.SerializeObject(response));
             }
         }
-
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+        public void RecuperarObjAluno(HttpContext context)
+        {
+            var idAluno = HttpContext.Current.Request.Params["id"];
+            MuscleAcademia.Entidades.Aluno Aluno = new MuscleAcademia.Entidades.Aluno();
+            try
+            {
+                var response = Aluno.ObterPorId(SextaFeira.Decrypt(idAluno));
+                // retorna um obj para ajax
+                HttpContext.Current.Response.Write(JsonConvert.SerializeObject(response));
+            }
+            catch (Exception ex)
+            {
+                // Retorna uma mensagem de erro para a chamada AJAX
+                var response = new { status = "error", mensagem = ex.Message };
+                HttpContext.Current.Response.Write(JsonConvert.SerializeObject(response));
+            }
+        }
         [WebMethod]
         [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
         public void CadastrarInstrutor(HttpContext context)
@@ -166,11 +194,101 @@ namespace Academia.Cadastro
                 CadastroInstrutor.Endereco = endereco;
                 CadastroInstrutor.Cep = cep;
                 CadastroInstrutor.Telefone = telefone;
+                CadastroInstrutor.Uf = uf;
+                CadastroInstrutor.Cidade = cidade;
                 CadastroInstrutor.NumeroEndereco = numero;
                 CadastroInstrutor.IdAcademia = MuscleAcademia.Global.academiaAtiva.Id;
 
                 // Insere o novo cadastro
                 var retorno = CadastroInstrutor.Inserir(CadastroInstrutor);
+
+                // retorna uma resposta para a chamada AJAX caso de tudo certo
+                var response = new { status = "success", mensagem = "Dados recebidos com sucesso." };
+                HttpContext.Current.Response.Write(JsonConvert.SerializeObject(response));
+            }
+            catch (Exception ex)
+            {
+                // Retorna uma mensagem de erro para a chamada AJAX
+                var response = new { status = "error", mensagem = ex.Message };
+                HttpContext.Current.Response.Write(JsonConvert.SerializeObject(response));
+            }
+        }
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+        public void CadastrarAluno(HttpContext context)
+        {
+            // Aqui seto os valores das variaceis de acordo com os parametros enviados.
+            var nome = HttpContext.Current.Request.Params["nome"];
+            var telefone = HttpContext.Current.Request.Params["telefone"];
+            var cep = HttpContext.Current.Request.Params["cep"];
+            var endereco = HttpContext.Current.Request.Params["endereco"];
+            var numero = HttpContext.Current.Request.Params["numero"];
+            var uf = HttpContext.Current.Request.Params["uf"];
+            var cidade = HttpContext.Current.Request.Params["cidade"];
+            var ativo = Convert.ToBoolean(HttpContext.Current.Request.Params["statusAluno"]);
+
+            MuscleAcademia.Models.Aluno aluno = new MuscleAcademia.Models.Aluno();
+            MuscleAcademia.Entidades.Aluno Aluno = new MuscleAcademia.Entidades.Aluno();
+
+            try
+            {
+                aluno.NomeCompleto = nome;
+                aluno.Endereco = endereco;
+                aluno.Cep = cep;
+                aluno.Telefone = telefone;
+                aluno.Uf = uf;
+                aluno.Cidade = cidade;
+                aluno.NumeroEndereco = numero;
+                aluno.IdAcademia = MuscleAcademia.Global.academiaAtiva.Id;
+                aluno.Ativo = ativo;
+
+                // Insere o novo cadastro
+                var retorno = Aluno.Inserir(aluno);
+
+                // retorna uma resposta para a chamada AJAX caso de tudo certo
+                var response = new { status = "success", mensagem = "Dados recebidos com sucesso." };
+                HttpContext.Current.Response.Write(JsonConvert.SerializeObject(response));
+            }
+            catch (Exception ex)
+            {
+                // Retorna uma mensagem de erro para a chamada AJAX
+                var response = new { status = "error", mensagem = ex.Message };
+                HttpContext.Current.Response.Write(JsonConvert.SerializeObject(response));
+            }
+        }
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+        public void EditarAluno(HttpContext context)
+        {
+            // Aqui seto os valores das variaceis de acordo com os parametros enviados.
+            var id = HttpContext.Current.Request.Params["id"];
+            var nome = HttpContext.Current.Request.Params["nome"];
+            var telefone = HttpContext.Current.Request.Params["telefone"];
+            var cep = HttpContext.Current.Request.Params["cep"];
+            var endereco = HttpContext.Current.Request.Params["endereco"];
+            var numero = HttpContext.Current.Request.Params["numero"];
+            var uf = HttpContext.Current.Request.Params["uf"];
+            var cidade = HttpContext.Current.Request.Params["cidade"];
+            var ativo = Convert.ToBoolean(HttpContext.Current.Request.Params["statusAluno"]);
+            //instacia da entidade cadastro
+            MuscleAcademia.Entidades.Aluno Aluno = new MuscleAcademia.Entidades.Aluno();
+            MuscleAcademia.Models.Aluno aluno = new MuscleAcademia.Models.Aluno();
+            try
+            {
+                aluno.IdAluno = SextaFeira.Decrypt(id);
+                aluno.NomeCompleto = nome;
+                aluno.Endereco = endereco;
+                aluno.Cep = cep;
+                aluno.Telefone = telefone;
+                aluno.NumeroEndereco = numero;
+                aluno.Cidade = cidade;
+                aluno.Uf = uf;
+                aluno.Ativo = ativo;
+                aluno.IdAcademia = MuscleAcademia.Global.academiaAtiva.Id;
+
+                // Insere o novo cadastro
+                Aluno.Atualizar(aluno);
 
                 // retorna uma resposta para a chamada AJAX caso de tudo certo
                 var response = new { status = "success", mensagem = "Dados recebidos com sucesso." };

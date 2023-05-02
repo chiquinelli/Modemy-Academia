@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuscleAcademia.Stark;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -62,7 +63,7 @@ namespace MuscleAcademia.Aluno
             switch (e.CommandName)
             {
                 case "Editar":
-                    Response.Redirect("../Cadastro/cadastroAluno.aspx?idAluno=" + idAluno);
+                    Response.Redirect("../Cadastro/cadastroAluno.aspx?idAluno=" + SextaFeira.Encrypt(idAluno));
                     break;
                 case "Excluir":
                     Alunos.Excluir(idAluno);
