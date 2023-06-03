@@ -217,30 +217,17 @@ namespace Academia.Cadastro
         [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
         public void CadastrarAluno(HttpContext context)
         {
-            // Aqui seto os valores das variaceis de acordo com os parametros enviados.
-            var nome = HttpContext.Current.Request.Params["nome"];
-            var telefone = HttpContext.Current.Request.Params["telefone"];
-            var cep = HttpContext.Current.Request.Params["cep"];
-            var endereco = HttpContext.Current.Request.Params["endereco"];
-            var numero = HttpContext.Current.Request.Params["numero"];
-            var uf = HttpContext.Current.Request.Params["uf"];
-            var cidade = HttpContext.Current.Request.Params["cidade"];
-            var ativo = Convert.ToBoolean(HttpContext.Current.Request.Params["statusAluno"]);
+            var requestBody = new System.IO.StreamReader(context.Request.InputStream).ReadToEnd();
 
-            MuscleAcademia.Models.Aluno aluno = new MuscleAcademia.Models.Aluno();
+            // Deserializa o JSON para um objeto da classe Aluno
+            var aluno = JsonConvert.DeserializeObject<MuscleAcademia.Models.Aluno>(requestBody);
+
             MuscleAcademia.Entidades.Aluno Aluno = new MuscleAcademia.Entidades.Aluno();
 
             try
             {
-                aluno.NomeCompleto = nome;
-                aluno.Endereco = endereco;
-                aluno.Cep = cep;
-                aluno.Telefone = telefone;
-                aluno.Uf = uf;
-                aluno.Cidade = cidade;
-                aluno.NumeroEndereco = numero;
+             
                 aluno.IdAcademia = MuscleAcademia.Global.academiaAtiva.Id;
-                aluno.Ativo = ativo;
 
                 // Insere o novo cadastro
                 var retorno = Aluno.Inserir(aluno);
