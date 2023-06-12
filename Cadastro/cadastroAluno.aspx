@@ -110,7 +110,7 @@
                         $("#btnCadastrar").val("Editar");
                         if (aluno.Ativo == true) { $("#ativo").prop("checked", true); }
                         if (aluno.Ativo == false) { $("#inativo").prop("checked", true); }
-
+                        
                         // Muda o onclick para "EditarCadastro"
                         $("#btnCadastrar").attr("onclick", "EditarCadastro(event)");
                         setTimeout(function () {
@@ -334,68 +334,30 @@
             }
         }
 
-
-        //function Cadastrar() {
-        //    if (ValidarCampos()) {
-        //        $.ajax({
-        //            type: "POST",
-        //            url: "Cadastro.ashx/Cadastrar",
-        //            data: { nome: nome, telefone: telefone, cep: cep, endereco: endereco, numero: numero, uf: estado, cidade: cidade, statusAluno: ativo, method: "CadastrarAluno" },
-        //            success: function (response) {
-        //                var resultado = JSON.parse(response);
-
-        //                if (resultado.status === "success") {
-        //                    Swal.fire({
-        //                        icon: 'success',
-        //                        title: 'O cadastro foi salvo com sucesso!',
-        //                        confirmButton: {
-        //                            text: 'Ok',
-        //                            className: 'btn btn-primary'
-        //                        }
-        //                    }).then((result) => {
-        //                        // Executa uma ação após o usuário clicar no botão "Ok"
-        //                        Swal.close();
-        //                        location.reload();
-        //                    });
-        //                } else {
-        //                    Swal.fire({
-        //                        icon: 'error',
-        //                        title: resultado.mensagem,
-        //                        confirmButton: {
-        //                            text: 'Ok',
-        //                            className: 'btn btn-primary'
-        //                        }
-        //                    }).then((result) => {
-        //                        // Executa uma ação após o usuário clicar no botão "Ok"
-        //                        Swal.close();
-        //                    });
-        //                }
-        //            },
-        //            error: function (xhr, textStatus, errorThrown) {
-        //                Swal.fire({
-        //                    icon: 'error',
-        //                    title: 'Erro ao salvar o cadastro.',
-        //                    confirmButton: {
-        //                        text: 'Ok',
-        //                        className: 'btn btn-primary'
-        //                    }
-        //                }).then((result) => {
-        //                    // Executa uma ação após o usuário clicar no botão "Ok"
-        //                    Swal.close();
-        //                });
-        //            }
-        //        });
-        //    }
-
-        //}
         function EditarCadastro() {
             if (ValidarCampos()) {
                 const urlParams = new URLSearchParams(window.location.search);
                 const idAluno = urlParams.get('idAluno');
+                // Crie um objeto com os parâmetros
+
+                var parametros = {
+                    NomeCompleto: nome,
+                    telefone: telefone,
+                    cep: cep,
+                    endereco: endereco,
+                    NumeroEndereco: numero,
+                    uf: estado,
+                    cidade: cidade,
+                    Ativo: ativo
+                };
+
+                // Converta o objeto em uma string JSON
+                var parametrosJSON = JSON.stringify(parametros);
+
                 $.ajax({
                     type: "POST",
-                    url: "Cadastro.ashx/Cadastrar",
-                    data: { id: idAluno, nome: nome, telefone: telefone, cep: cep, endereco: endereco, numero: numero, uf: estado, cidade: cidade, statusAluno: ativo, method: "EditarAluno" },
+                    url: "Cadastro.ashx?method=" + "EditarAluno&IdAluno="+idAluno,
+                    data: parametrosJSON,
                     success: function (response) {
                         var resultado = JSON.parse(response);
 

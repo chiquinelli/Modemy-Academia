@@ -249,32 +249,18 @@ namespace Academia.Cadastro
         public void EditarAluno(HttpContext context)
         {
             // Aqui seto os valores das variaceis de acordo com os parametros enviados.
-            var id = HttpContext.Current.Request.Params["id"];
-            var nome = HttpContext.Current.Request.Params["nome"];
-            var telefone = HttpContext.Current.Request.Params["telefone"];
-            var cep = HttpContext.Current.Request.Params["cep"];
-            var endereco = HttpContext.Current.Request.Params["endereco"];
-            var numero = HttpContext.Current.Request.Params["numero"];
-            var uf = HttpContext.Current.Request.Params["uf"];
-            var cidade = HttpContext.Current.Request.Params["cidade"];
-            var ativo = Convert.ToBoolean(HttpContext.Current.Request.Params["statusAluno"]);
-            //instacia da entidade cadastro
+            var id = HttpContext.Current.Request.Params["IdAluno"];
+            var requestBody = new System.IO.StreamReader(context.Request.InputStream).ReadToEnd();
+          
+
+            // Deserializa o JSON para um objeto da classe Aluno
+            var aluno = JsonConvert.DeserializeObject<MuscleAcademia.Models.Aluno>(requestBody);
+
             MuscleAcademia.Entidades.Aluno Aluno = new MuscleAcademia.Entidades.Aluno();
-            MuscleAcademia.Models.Aluno aluno = new MuscleAcademia.Models.Aluno();
             try
             {
                 aluno.IdAluno = SextaFeira.Decrypt(id);
-                aluno.NomeCompleto = nome;
-                aluno.Endereco = endereco;
-                aluno.Cep = cep;
-                aluno.Telefone = telefone;
-                aluno.NumeroEndereco = numero;
-                aluno.Cidade = cidade;
-                aluno.Uf = uf;
-                aluno.Ativo = ativo;
                 aluno.IdAcademia = MuscleAcademia.Global.academiaAtiva.Id;
-
-                // Insere o novo cadastro
                 Aluno.Atualizar(aluno);
 
                 // retorna uma resposta para a chamada AJAX caso de tudo certo
